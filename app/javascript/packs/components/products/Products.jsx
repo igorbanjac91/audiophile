@@ -6,7 +6,7 @@ const Products = () => {
   let param = useParams();
 
   return (
-    <div className="categories">
+    <div className="product">
       <Product name={param.slug}/>
     </div>
   )
@@ -16,7 +16,7 @@ const Products = () => {
 function Product(props) {
 
   return (
-    <div className="category">
+    <div className="product">
       <h2>{props.name}</h2>
     </div>
   )
