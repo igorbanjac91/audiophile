@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'pages#index'
 
+  match '/categories/:name', to: "pages#index", via: :all
+  match '/categories', to: "pages#index", via: :all
+  match '/', to: "pages#index", via: :all
 end
