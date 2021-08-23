@@ -17,7 +17,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
-  gem 'rspec-print_failures_eagerly';
+  gem 'rspec-print_failures_eagerly'
+  gem 'capybara'
+  gem 'webdrivers'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :development do
