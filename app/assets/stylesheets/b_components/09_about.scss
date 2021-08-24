@@ -1,0 +1,35 @@
+.about {
+  width: 86%;
+  margin: 0 auto;
+  margin-bottom: 120px;
+  text-align: center;
+
+  &__image {
+    height: 300px;
+    margin-bottom: 40px;
+    background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629831644/audiophile/shared/mobile/image-best-gear_balnft.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+  }
+
+  &__heading {
+    margin-bottom: 32px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 1px;
+
+    strong {
+      color: $primary;
+    }
+  }
+  
+  &__text {
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 25px;
+    opacity: 0.6;
+  }
+}
