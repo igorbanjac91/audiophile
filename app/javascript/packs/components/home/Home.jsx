@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Home = () => {
 
   return (
@@ -15,10 +16,11 @@ const Home = () => {
 const MainProduct = () => {
   
   return (
-    <div className="top-product">
+    <header className="top-product"
+         style={{ backgroundImage: `url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg")` }} >
       <ProductInfo />
       <ButtonSeeProduct />
-    </div>
+    </header>
   )
 }
 
