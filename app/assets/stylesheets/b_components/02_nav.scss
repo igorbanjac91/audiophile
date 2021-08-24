@@ -1,0 +1,10 @@
+.main-nav {
+  background-color: $dark;
+  padding: 32px 7%;
+  border-bottom: 1px solid hsla(0, 0%, 59%, 0.3);
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}

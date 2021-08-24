@@ -1,0 +1,45 @@
+.home  {
+  color: $white;
+
+  .top-product {
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -85px;
+    background-size: cover;
+
+    &__content {
+      padding-top: 120px;
+      text-align: center;
+    }
+
+    .product-info {
+      padding-top: 200px;
+
+      &__new {
+        display: inline-block;
+        margin-bottom: 16px;
+        font-size: 14px;
+        letter-spacing: 10px;
+        opacity: 0.4;
+      }
+      
+      &__name {
+        margin-bottom: 24px;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: 1.3px;
+      }
+      
+      &__description {
+        margin-bottom: 28px;
+        padding: 0 7%;
+        font-size: 15px;
+        line-height: 25px;
+        opacity: 0.4;
+
+      }
+    }
+  }
+}

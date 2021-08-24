@@ -17,9 +17,12 @@ const MainProduct = () => {
   
   return (
     <header className="top-product"
-         style={{ backgroundImage: `url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg")` }} >
-      <ProductInfo />
-      <ButtonSeeProduct />
+         style={{ backgroundImage: `url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg")` }} 
+    >
+      <div className="top-product__content">
+        <ProductInfo />
+        <ButtonSeeProduct />
+      </div>
     </header>
   )
 }
@@ -28,9 +31,9 @@ const ProductInfo = () => {
 
   return (
     <div className="porduct-info">
-      <span>NEW PRODUCT</span>
-      <h2>XX99 MARK II HEADPHONES</h2>
-      <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
+      <span className="product-info__new">NEW PRODUCT</span>
+      <h2 className="product-info__name">XX99 MARK II HEADPHONES</h2>
+      <p className="product-info__description">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
     </div>
   )
 }
@@ -39,7 +42,7 @@ const ProductInfo = () => {
 const ButtonSeeProduct = () => {
 
   return (
-    <button className="btn">SEE PRODUCT</button>
+    <button className="btn-see-product">SEE PRODUCT</button>
   )
 }
 
