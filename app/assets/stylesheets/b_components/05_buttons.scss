@@ -7,3 +7,34 @@
   background-color: $primary;
   border: none;
 }
+
+.btn-shop {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  font-size: 13px;
+  font-weight: 700;
+  color: $black;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+.top-products-list {
+
+  &__first-item {
+
+    .btn-see-product {
+      background-color: $dark;
+    }
+  }
+  
+  &__second-item,
+  &__third-item {
+    
+    .btn-see-product {
+      color: $dark;
+      background-color: transparent;
+      border: 1px solid $dark;
+    }
+  }
+}

@@ -1,44 +1,188 @@
 .home  {
   color: $white;
 
-  .top-product {
+/*-----------------SHARED-----------------------------------*/
+
+.main-product, 
+.top-products-list__first-item {
+
+  .product-info {
+    padding-top: 200px;
+
+    &__new {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 14px;
+      letter-spacing: 10px;
+      opacity: 0.4;
+    }
+    
+    &__name {
+      margin-bottom: 24px;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 40px;
+      letter-spacing: 1.3px;
+    }
+    
+    &__description {
+      margin-bottom: 28px;
+      padding: 0 7%;
+      font-size: 15px;
+      line-height: 25px;
+      opacity: 0.75;
+
+    }
+  }
+}
+
+.top-products-list__second-item,
+.top-products-list__third-item {
+  
+  .product-info {
+
+    &__name {
+      margin-bottom: 32px;
+      font-size: 28px;
+      font-weight: 700;
+      color: $black;
+    }
+  }
+}
+
+
+/*-----------------MAIN PRODUCT-----------------------------------*/
+
+  .main-product {
     height: 500px;
     background-repeat: no-repeat;
     background-position: center;
-    background-position-y: -85px;
-    background-size: cover;
+    background-position-y: -80px;
+    background-size: 101%;
 
     &__content {
       padding-top: 120px;
       text-align: center;
     }
+  }
 
-    .product-info {
-      padding-top: 200px;
+/*-----------------CATEGORIES LIST-----------------------------------*/  
 
-      &__new {
-        display: inline-block;
-        margin-bottom: 16px;
-        font-size: 14px;
-        letter-spacing: 10px;
-        opacity: 0.4;
+  .categories-list {
+    position: relative;
+    width: 86%;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 120px;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 100%;
+      height: 165px; 
+      text-align: center;
+      background-color: $light;
+      border-radius: 8px;
+
+      img {
+        position: absolute;
+        height: 150px;
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%);
       }
-      
-      &__name {
-        margin-bottom: 24px;
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 40px;
-        letter-spacing: 1.3px;
-      }
-      
-      &__description {
-        margin-bottom: 28px;
-        padding: 0 7%;
+
+      h3 {
+        margin-bottom: 17px;
         font-size: 15px;
-        line-height: 25px;
-        opacity: 0.4;
+        font-weight: 700;
+        color: $black;
+        letter-spacing: 1px;
+      }
 
+      a {
+        margin: 0 auto;
+        margin-bottom: 22px;
+      }
+
+    }
+  }
+
+/*-----------------TOP PRODUCTS-----------------------------------*/
+
+  .top-products-list {
+    margin-bottom: 120px;
+
+    &__first-item {
+      width: 86%;
+      min-height: 600px;
+      margin: 0 auto;
+      margin-bottom: 24px;
+      text-align: center;
+      background-color: $primary;
+      background-image: url("seeds/pattern-circles.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: -115px;
+      background-size: 173%;
+      border-radius: 8px;
+      
+      img {
+        margin-top: 55px;
+        margin-bottom: 36px;
+        height: 190px;
+        z-index: 100;
+      }
+
+      .product-info__name {
+        margin: 0 auto;
+        margin-bottom: 24px;
+        width: 200px;
+      }
+    }
+    
+    &__second-item {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 86%;
+      min-height: 320px;
+      padding: 24px;
+      margin: 0 auto;
+      margin-bottom: 24px;
+      background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-speaker-zx7_nk6mas.jpg");
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: cover;
+      border-radius: 8px;
+    }
+
+    &__third-item {
+      width: 86%;
+      min-height: 600px;
+      margin: 0 auto;
+
+      .image-container {
+
+        height: 200px;
+        margin-bottom: 24px;
+        background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-earphones-yx1_mnvq11.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 8px;
+      }
+
+      .info-container {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 200px;
+        padding-left: 24px;
+        background-color: $light;
       }
     }
   }
