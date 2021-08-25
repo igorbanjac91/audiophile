@@ -1,11 +1,8 @@
-import { props } from "bluebird";
-import React from "react";
-import Earphones from "../../../../assets/images/seeds/image-earphones.png"
-import { ArrowRightIcon } from "../shared/Icons";
-
+import React, { useEffect, useState } from "react";
+import CategoriesList from "../shared/CategoriesList";
 
 let mainItem = {
-  name: "XX99 MARK HEADPHONES",
+  name: "XX99 MARK II HEADPHONES",
   new: true,
   description: "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
 }
@@ -42,9 +39,22 @@ const Home = () => {
 
 const MainProduct = () => {
   
+  let imageUrl = "";
+
+  const windowSize = useWindowSize();
+
+  if ( windowSize.width <= 768 ) {
+    imageUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg";
+  } else if ( windowSize.width <= 960) {
+    imageUrl= "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-header_suxtvz.jpg";
+  } else {
+    imageUrl= "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737642/audiophile/home/desktop/image-hero_lvfuhu.jpg";
+  }
+  
+
   return (
     <header className="main-product"
-         style={{ backgroundImage: `url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg")` }} 
+         style={{ backgroundImage: `url(${imageUrl})` }} 
     >
       <div className="main-product__content">
         <ProductInfo item={mainItem}/>
@@ -74,32 +84,6 @@ const ButtonSeeProduct = () => {
 
   return (
     <button className="btn-see-product">SEE PRODUCT</button>
-  )
-}
-
-
-const CategoriesList = () => {
-
-  return (
-    <div className="categories-list">
-      <ul>
-        <CategoriesListItem /> 
-      </ul>
-    </div>
-  )
-}
-
-const CategoriesListItem = () => {
-  
-  return (
-    <li className="categories-list__item">
-      <img src={Earphones} alt="earphones" />
-      <h3>HEADPHONES</h3>
-      <a className="btn-shop">
-        <span>SHOP</span>
-        <ArrowRightIcon />
-      </a>
-    </li>
   )
 }
 
@@ -154,6 +138,33 @@ const ThirdProductListItem = () => {
       </div>
     </li>
   )
+}
+
+function useWindowSize() {
+
+  const [windowSize, setWindowSize] = useState( {
+    width: undefined,
+    height: undefined
+  })
+
+  useEffect(() => {
+
+    function handleResize() {
+
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
+    
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, []);
+
+  return windowSize;
 }
 
 export default Home;

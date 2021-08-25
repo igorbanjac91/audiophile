@@ -1,0 +1,44 @@
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 86%;
+  margin: 0 auto;
+  padding-top: 100px;
+  margin-bottom: 120px;
+  
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 165px; 
+    margin-bottom: 64px;
+    text-align: center;
+    background-color: $light;
+    border-radius: 8px;
+
+    img {
+      position: absolute;
+      height: 150px;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    h3 {
+      margin-bottom: 17px;
+      font-size: 15px;
+      font-weight: 700;
+      color: $black;
+      letter-spacing: 1px;
+    }
+
+    a {
+      margin: 0 auto;
+      margin-bottom: 22px;
+    }
+
+  }
+}

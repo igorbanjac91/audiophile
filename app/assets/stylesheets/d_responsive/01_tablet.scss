@@ -1,4 +1,21 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
 
+  /*------------------NAV---------------------------------------------*/
 
+  .main-nav {
+    border: transparent;
+
+    ul {
+      position: relative;
+      border-bottom: 1px solid hsla(0, 0%, 59%, 0.3);
+    }
+
+    &__menu {
+    }
+
+    &__logo {
+      position: absolute;
+      left: 100px;
+    }
+  }
 }

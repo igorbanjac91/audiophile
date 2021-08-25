@@ -1,10 +1,33 @@
 .main-nav {
   background-color: $dark;
-  padding: 32px 7%;
   border-bottom: 1px solid hsla(0, 0%, 59%, 0.3);
-
-  ul {
+  
+  > ul {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 86%;
+    padding: 32px 0;
+    margin: 0 auto;
   }
+
+  .categories-list {
+    position: absolute;
+    display: none;
+    background-color: $white;
+    z-index: 100;
+    height: 750px;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .hamburger-icon,
+  .hamburger-icon > * {
+    pointer-events: none;
+  }
+}
+
+.menu-nav {
+  display: none;
 }
