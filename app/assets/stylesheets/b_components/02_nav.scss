@@ -1,3 +1,6 @@
+
+/*-----------------HEADER-----------------------------------*/
+
 .main-nav {
   position: sticky;
   background-color: $dark;
@@ -8,6 +11,14 @@
 
     > a {
       cursor: pointer;
+    }
+    
+    a {
+      transition: color 200ms ease-in;
+    }
+
+    a:hover {
+      color: $primary;
     }
   }
 
@@ -39,4 +50,43 @@
 .menu-nav {
   display: none;
   transform: translateY(-50%);
+}
+
+/*-----------------FOOTER-----------------------------------*/
+
+.footer {
+
+  &__site-nav {
+    margin-bottom: 40px;
+
+    a {
+      display: inline-block;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 25px;
+      color: $white;
+      letter-spacing: 2px;
+      transition: color 200ms ease-in;
+    }
+
+    a:hover {
+      color: $primary;
+    }
+  }
+
+  &__social-nav {
+
+    li {
+      display: inline-block;
+    }
+
+    a {
+      padding: 8px;
+    }
+    
+    a:hover path {
+      fill: $primary;
+    }
+  }
 }

@@ -5,9 +5,13 @@
   font-weight: 700;
   color: $white;
   cursor: pointer;
-
   background-color: $primary;
   border: none;
+  transition: background-color 100ms ease-in;
+}
+
+.btn-see-product:hover {
+  background-color: $primary-light;
 }
 
 .btn-shop {
@@ -20,6 +24,11 @@
   letter-spacing: 1px;
   cursor: pointer;
   opacity: 0.5;
+  transition: color 200ms ease-in;
+}
+
+.btn-shop:hover {
+  color: $primary;
 }
 
 .top-products-list {
@@ -28,6 +37,11 @@
 
     .btn-see-product {
       background-color: $dark;
+      transition: background-color 100ms ease-in;
+    }
+
+    .btn-see-product:hover {
+      background-color: #4C4C4C;
     }
   }
   
@@ -38,6 +52,12 @@
       color: $dark;
       background-color: transparent;
       border: 1px solid $dark;
+      transition: all 100ms ease-in;
+    }
+
+    .btn-see-product:hover {
+      background-color: $black;
+      color: $white;
     }
   }
 }
