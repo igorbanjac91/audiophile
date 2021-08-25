@@ -1,0 +1,16 @@
+.darken-page {
+  background-color: $black;
+  opacity: 0.4;
+}
+
+.drop-shadow::after {
+  position: fixed;
+  content: " ";
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $black;
+  opacity: 0.4;
+  z-index: 1;
+}

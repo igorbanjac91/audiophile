@@ -28,11 +28,11 @@ let thirdItem = {
 const Home = () => {
 
   return (
-    <div className="home">
+    <main className="home">
       <MainProduct />
       <CategoriesList />
       <TopProductsList />
-    </div>
+    </main>
   )
 }
 

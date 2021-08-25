@@ -7,18 +7,21 @@ const Nav = () => {
   let [ menuDown, setMenuDown ] = useState(false);
 
   function handleClick(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     let menu = document.querySelector(".main-nav > .categories-list");
     let body = document.querySelector("body");
+    let mainContent = document.querySelector(".main-content-container");
     
     
     if (menuDown) {
       menu.style.display = "none";
-      setMenuDown(false)
+      setMenuDown(false);
+      toggleDarkenPage();
     } else {
       menu.style.display = "block";
-      setMenuDown(true)
+      setMenuDown(true);
+      toggleDarkenPage();
     }
     
     body.addEventListener("click", hideMenu);
@@ -27,6 +30,15 @@ const Nav = () => {
       if (event.target !=  e.target) {
         setMenuDown(false)
         menu.style.display = "none";
+        mainContent.classList.remove("drop-shadow");
+      }
+    }
+
+    function toggleDarkenPage() {
+      if (Array.from(mainContent.classList).includes("drop-shadow")) {
+        mainContent.classList.remove("drop-shadow");
+      } else {
+        mainContent.classList.add("drop-shadow");
       }
     }
   }

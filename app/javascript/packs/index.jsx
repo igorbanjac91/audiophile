@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
     <div>
       <Nav />
-      <Router>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/categories/:slug" component={Categories} />
-        <Route exact path="/products/:slug" component={Products} />
-      </Router>
+      <div className="main-content-container">
+        <Router>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/categories/:slug" component={Categories} />
+          <Route exact path="/products/:slug" component={Products} />
+        </Router>
+      </div>
     </div>,
     index,
   )
