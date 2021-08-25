@@ -74,7 +74,8 @@
   .home {
 
     .top-products-list {
-      
+      margin-bottom: 96px;
+
       &__first-item {
         height: 720px;
         background-position-y: -270px;
@@ -111,6 +112,7 @@
       .image-container {
         flex: 0 1 49%; 
         height: 320px;
+        margin-bottom: 0;
         background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-earphones-yx1_y6foqm.jpg");
       }
       
@@ -119,5 +121,59 @@
         height: 320px;
       }
     }
+  }
+
+  /*-----------------TOP PRODUCTS-----------------------------------*/
+  
+  .about {
+    margin-bottom: 96px;
+
+    &__image {
+      background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629904360/audiophile/shared/tablet/image-best-gear_f5vrp2.jpg");
+    }
+
+    &__heading {
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  /*-----------------FOOTER-----------------------------------*/
+
+  .footer {
+    text-align: left;
+    padding-bottom: 48px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    &__site-nav {
+      margin-bottom: 32px;
+
+      li {
+        display: inline-block;
+      }
+
+      li:first-child a {
+        padding-left: 0;
+      }
+    }
+
+    &__about {
+      margin-bottom: 80px;
+    }
+
+    &__copyright {
+      margin-bottom: 0;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .footer::before {
+    left: 90px;
   }
 }
