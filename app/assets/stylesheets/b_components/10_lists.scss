@@ -1,12 +1,15 @@
 .categories-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   width: 86%;
   margin: 0 auto;
   padding-top: 100px;
-  margin-bottom: 120px;
+  margin-bottom: 56px;
   
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
   &__item {
     position: relative;
     display: flex;
@@ -18,7 +21,7 @@
     text-align: center;
     background-color: $light;
     border-radius: 8px;
-
+  
     img {
       position: absolute;
       height: 150px;

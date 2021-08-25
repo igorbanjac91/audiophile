@@ -1,0 +1,14 @@
+/*-----------------MAIN PRODUCT-----------------------------------*/
+
+.main-product {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: bottom;
+  background-size: cover;
+
+  &__content {
+    padding-top: 120px;
+    text-align: center;
+  }
+}

@@ -1,21 +1,75 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
 
   /*------------------NAV---------------------------------------------*/
 
   .main-nav {
     border: transparent;
 
-    ul {
+    > ul:first-child {
       position: relative;
       border-bottom: 1px solid hsla(0, 0%, 59%, 0.3);
     }
 
     &__menu {
+
     }
 
     &__logo {
       position: absolute;
       left: 100px;
+    }
+
+    .categories-list {
+      height: 240px;
+    }
+  }
+
+  /*-----------------MAIN PRODUCT-----------------------------------*/
+
+  .home {
+
+    .main-product {
+      height: 650px;
+      
+      &__content {
+        padding-top: 150px;
+      }
+
+      .product-info {
+        
+        &__new {
+          margin-bottom: 24px;
+        }
+
+        &__name {
+          max-width: 500px;
+          font-size: 56px;
+          line-height: 58px;
+          letter-spacing: 2px;
+        }
+
+        &__description {
+          max-width: 350px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  /*-----------------MAIN PRODUCT-----------------------------------*/
+
+  .categories-list {
+    margin-bottom: 96px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__item {
+      flex: 0 1 32%;
+      margin-bottom: 0
     }
   }
 }
