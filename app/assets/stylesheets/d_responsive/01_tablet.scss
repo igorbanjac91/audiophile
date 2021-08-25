@@ -10,10 +10,6 @@
       border-bottom: 1px solid hsla(0, 0%, 59%, 0.3);
     }
 
-    &__menu {
-
-    }
-
     &__logo {
       position: absolute;
       left: 100px;
@@ -56,7 +52,7 @@
     }
   }
 
-  /*-----------------MAIN PRODUCT-----------------------------------*/
+  /*-----------------CATEGORIES LIST-----------------------------------*/
 
   .categories-list {
     margin-bottom: 96px;
@@ -70,6 +66,58 @@
     &__item {
       flex: 0 1 32%;
       margin-bottom: 0
+    }
+  }
+
+  /*-----------------TOP PRODUCTS-----------------------------------*/
+
+  .home {
+
+    .top-products-list {
+      
+      &__first-item {
+        height: 720px;
+        background-position-y: -270px;
+        background-size: 140%;
+
+        img {
+          height: 240px;
+          margin-bottom: 64px;
+        }
+
+        .product-info {
+
+          &__name {
+            width: 300px;
+            font-size: 56px;
+            line-height: 58px;
+          }
+
+          &__description {
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      &__second-item {
+        background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-speaker-zx7_wxtq7f.jpg");
+      }
+
+      &__third-item {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .image-container {
+        flex: 0 1 49%; 
+        height: 320px;
+        background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-earphones-yx1_y6foqm.jpg");
+      }
+      
+      .info-container {
+        flex: 0 1 49%;
+        height: 320px;
+      }
     }
   }
 }

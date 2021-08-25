@@ -39,18 +39,13 @@ const Home = () => {
 
 const MainProduct = () => {
   
-  let imageUrl = "";
+  let imageMobileUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg";
+  let imageTabletUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-header_suxtvz.jpg";
+  let imageDeskotpUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737642/audiophile/home/desktop/image-hero_lvfuhu.jpg";
 
   const windowSize = useWindowSize();
 
-  if ( windowSize.width < 600 ) {
-    imageUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-header_ddbjsg.jpg";
-  } else if ( windowSize.width < 960) {
-    imageUrl= "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-header_suxtvz.jpg";
-  } else {
-    imageUrl= "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737642/audiophile/home/desktop/image-hero_lvfuhu.jpg";
-  }
-  
+  let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDeskotpUrl, windowSize);
 
   return (
     <header className="main-product"
@@ -102,9 +97,17 @@ const TopProductsList = () => {
 
 const FirstProductListItem = () => {
   
+  let imageMobileUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-speaker-zx9_jduqnp.png";
+  let imageTabletUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-speaker-zx9_f2nwnz.png";
+  let imageDeskotpUrl = "https://res.cloudinary.com/dsmap0onp/image/upload/v1629737642/audiophile/home/desktop/image-speaker-zx9_ejklva.png";
+
+  let windowSize = useWindowSize();
+
+  let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDeskotpUrl, windowSize);
+
   return (
     <li className="top-products-list__first-item">
-      <img src="https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-speaker-zx9_jduqnp.png" alt="speaker" />
+      <img src={imageUrl} alt="speaker" />
       <ProductInfo item={firstItem}/>
       <ButtonSeeProduct />
     </li>
@@ -165,6 +168,16 @@ function useWindowSize() {
   }, []);
 
   return windowSize;
+}
+
+function setImage(mobileUrl, tabletUrl, desktopUrl, windowSize) {
+  if ( windowSize.width < 600 ) {
+    return mobileUrl
+  } else if ( windowSize.width < 960) {
+    return tabletUrl
+  } else {
+    return desktopUrl
+  }
 }
 
 export default Home;

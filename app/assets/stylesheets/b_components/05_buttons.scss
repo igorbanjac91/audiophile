@@ -4,6 +4,8 @@
   font-size: 13px;
   font-weight: 700;
   color: $white;
+  cursor: pointer;
+
   background-color: $primary;
   border: none;
 }
@@ -16,6 +18,7 @@
   font-weight: 700;
   color: $black;
   letter-spacing: 1px;
+  cursor: pointer;
   opacity: 0.5;
 }
 

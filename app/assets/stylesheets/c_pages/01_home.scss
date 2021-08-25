@@ -108,9 +108,11 @@
     &__third-item {
       width: 86%;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
 
       .image-container {
-
+        flex: 0 1 100%;
         height: 200px;
         margin-bottom: 24px;
         background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737663/audiophile/home/mobile/image-earphones-yx1_mnvq11.jpg");
@@ -128,6 +130,7 @@
         height: 200px;
         padding-left: 24px;
         background-color: $light;
+        border-radius: 8px;
       }
     }
   }
