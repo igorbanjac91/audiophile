@@ -107,23 +107,23 @@
       &__third-item {
         flex-direction: row;
         justify-content: space-between;
-      }
 
-      .image-container {
-        flex: 0 1 49%; 
-        height: 320px;
-        margin-bottom: 0;
-        background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-earphones-yx1_y6foqm.jpg");
-      }
-      
-      .info-container {
-        flex: 0 1 49%;
-        height: 320px;
+        .image-container {
+          flex: 0 1 49%; 
+          height: 320px;
+          margin-bottom: 0;
+          background-image: url("https://res.cloudinary.com/dsmap0onp/image/upload/v1629737615/audiophile/home/tablet/image-earphones-yx1_y6foqm.jpg");
+        }
+        
+        .info-container {
+          flex: 0 1 49%;
+          height: 320px;
+        }
       }
     }
   }
 
-  /*-----------------TOP PRODUCTS-----------------------------------*/
+  /*-----------------ABOUT-----------------------------------*/
   
   .about {
     margin-bottom: 96px;

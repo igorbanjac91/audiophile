@@ -2,7 +2,6 @@ import React from "react";
 import { ArrowRightIcon } from "./Icons";
 import Earphones from "../../../../assets/images/seeds/image-earphones.png"
 
-
 const CategoriesList = () => {
 
   return (

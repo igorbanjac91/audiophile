@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CategoriesList from "../shared/CategoriesList";
+import { useWindowSize, setImage } from "../utils";
 
 let mainItem = {
   name: "XX99R MARK II HEADPHONES",
@@ -108,8 +109,10 @@ const FirstProductListItem = () => {
   return (
     <li className="top-products-list__first-item">
       <img src={imageUrl} alt="speaker" />
-      <ProductInfo item={firstItem}/>
-      <ButtonSeeProduct />
+      <div>
+        <ProductInfo item={firstItem}/>
+        <ButtonSeeProduct />
+      </div>  
     </li>
   )
 }
@@ -141,43 +144,6 @@ const ThirdProductListItem = () => {
       </div>
     </li>
   )
-}
-
-function useWindowSize() {
-
-  const [windowSize, setWindowSize] = useState( {
-    width: undefined,
-    height: undefined
-  })
-
-  useEffect(() => {
-
-    function handleResize() {
-
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-    }
-    
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize)
-  }, []);
-
-  return windowSize;
-}
-
-function setImage(mobileUrl, tabletUrl, desktopUrl, windowSize) {
-  if ( windowSize.width < 600 ) {
-    return mobileUrl
-  } else if ( windowSize.width < 960) {
-    return tabletUrl
-  } else {
-    return desktopUrl
-  }
 }
 
 export default Home;
