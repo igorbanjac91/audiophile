@@ -203,4 +203,36 @@
       text-align: left;
     }
   }
+
+  /*-----------------FOOTER-----------------------------------*/
+
+  .footer {
+    height: 330px;
+    padding-top: 51px;
+
+    &__content-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .top-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__about {
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
+    &__social-nav {
+      position: relative;
+      bottom: 100px;
+    }
+  }
+
+  .footer::before {
+    left: 150px;
+  }
 }
