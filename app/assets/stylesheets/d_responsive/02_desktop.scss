@@ -55,6 +55,7 @@
     .main-product {
       
       &__content {
+        width: 86%;
         max-width: 1100px;
         margin: 0 auto;
         text-align: left;
@@ -77,6 +78,7 @@
   /*-----------------CATEGORIES LIST-----------------------------------*/
 
   .categories-list {
+    width: 86%;
     max-width: 1100px;
     margin-bottom: 168px;
 
@@ -103,6 +105,7 @@
   .home {
 
     .top-products-list {
+      width: 86%;
       max-width: 1110px;
       margin: 0 auto;
       margin-bottom: 168px;
