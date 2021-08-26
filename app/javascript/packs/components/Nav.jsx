@@ -1,48 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HamburgerIcon, Logo, CartIcon } from "./shared/Icons";
 import CategoriesList from "./shared/CategoriesList";
+import { useWindowSize } from "./utils";
 
 const Nav = () => {
 
   let [ menuDown, setMenuDown ] = useState(false);
+  let windowSize = useWindowSize();
+  let mainContent = document.querySelector(".main-content-container");
+  let menu = document.querySelector(".main-nav > .categories-list");
 
+  useEffect(() => {
+
+    if ( windowSize.width > 960 ) {
+      hideNavMenu();
+    }
+    
+  },[windowSize])
+  
   function handleClick(e) {
     e.preventDefault();
-
-    let menu = document.querySelector(".main-nav > .categories-list");
-    let body = document.querySelector("body");
-    let mainContent = document.querySelector(".main-content-container");
     
+    let body = document.querySelector("body");
     
     if (menuDown) {
-      menu.style.display = "none";
-      setMenuDown(false);
-      toggleDarkenPage();
+      hideNavMenu();
     } else {
-      menu.style.display = "block";
-      setMenuDown(true);
-      toggleDarkenPage();
+      showNavMenu();
     }
     
     body.addEventListener("click", hideMenu);
     
     function hideMenu(event) {
       if (event.target !=  e.target) {
-        setMenuDown(false)
-        menu.style.display = "none";
-        mainContent.classList.remove("drop-shadow");
-      }
-    }
-
-    function toggleDarkenPage() {
-      if (Array.from(mainContent.classList).includes("drop-shadow")) {
-        mainContent.classList.remove("drop-shadow");
-      } else {
-        mainContent.classList.add("drop-shadow");
+        hideNavMenu();
       }
     }
   }
 
+  function hideNavMenu() {
+    menu.style.display = "none";
+    setMenuDown(false)
+    mainContent.classList.remove("drop-shadow");
+  }
+  
+  function showNavMenu() {
+    menu.style.display = "block";
+    setMenuDown(true);
+    mainContent.classList.add("drop-shadow");
+  }
+  
   return (
     <nav className="main-nav">
       <ul>
