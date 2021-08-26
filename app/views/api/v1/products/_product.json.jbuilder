@@ -1,0 +1,1 @@
+json.extract! product, :name, :slug, :description, :features, :price, :new
