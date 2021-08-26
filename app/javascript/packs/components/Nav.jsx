@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HamburgerIcon, Logo, CartIcon } from "./shared/Icons";
 import CategoriesList from "./shared/CategoriesList";
 import { useWindowSize } from "./utils";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
 
@@ -59,17 +60,25 @@ const Nav = () => {
           </a>
           <nav className="menu-nav">
             <ul>
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">HEADPHONES</a></li>
-              <li><a href="#">SPEAKERS</a></li>
-              <li><a href="#">EARPHONES</a></li>
+              <li>
+                <Link to="/">HOME</Link>
+              </li>
+              <li>
+                <Link to="/categories/headphones">HEADPHONES</Link>
+              </li>
+              <li>
+                <Link to="/categories/speakers">SPEAKERS</Link>
+              </li>
+              <li>
+                <Link to="/categories/earphones">EARPHONES</Link>
+              </li>
             </ul>
           </nav>
         </li>
         <li className="main-nav__logo">
-          <a href="#">
+          <Link to="/">
             <Logo />
-          </a>
+          </Link>
         </li>
         <li className="main-nav__cart">
           <a href="#">
