@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div className="main-content-container">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/categories/:slug" component={Categories} />
+            <Route exact path="/categories/:name" component={Categories} />
             <Route exact path="/products/:slug" component={Products} />       
           </Switch>
         </div>

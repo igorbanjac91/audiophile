@@ -1,6 +1,8 @@
 import React from "react";
 import CategoriesList from "../shared/CategoriesList";
 import { useWindowSize, setImage } from "../utils";
+import ButtonSeeProduct from "../shared/ButtonSeeProduct";
+import ProductInfo from "../products/ProductInfo";
 
 let mainItem = {
   name: "XX99R MARK II HEADPHONES",
@@ -57,29 +59,6 @@ const MainProduct = () => {
         <ButtonSeeProduct />
       </div>
     </header>
-  )
-}
-
-const ProductInfo = (props) => {
-
-  return (
-    <div className="porduct-info">
-      { props.item.new && <span className="product-info__new">NEW PRODUCT</span> }
-      { props.item.name && <h2 className="product-info__name">{props.item.name}</h2> }
-      { props.item.description && <p className="product-info__description">{props.item.description}</p> }
-      
-      
-    </div>
-  )
-}
-
-
-const ButtonSeeProduct = () => {
-
-  
-
-  return (
-    <button className="btn-see-product">SEE PRODUCT</button>
   )
 }
 

@@ -1,6 +1,6 @@
-earphones = Category.create!(name: "Earphones" )
-speakers = Category.create!(name: "Speakers" )
-headphones = Category.create!(name: "Headphones" )
+earphones = Category.create!(name: "earphones" )
+speakers = Category.create!(name: "speakers" )
+headphones = Category.create!(name: "headphones" )
 
 Product.create!(name: "YX1 Wireless Earphones",
                 slug: "yx1-earphones",

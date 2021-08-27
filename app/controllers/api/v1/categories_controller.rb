@@ -5,6 +5,6 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find_by(name: params[:id])
   end
 end
