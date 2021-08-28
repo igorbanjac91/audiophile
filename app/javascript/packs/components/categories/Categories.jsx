@@ -13,19 +13,21 @@ const Categories = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [param]);
 
   function fetchProducts() {
-
     axios
       .get(`/api/v1/products?category=${param.name}`)
       .then( response => {
-        console.log(response.data)
         let fetchedProducts = response.data
         setProducts(fetchedProducts);
       }).catch( e => {
         console.log(e);
       }) 
+  }
+
+  function handleClick() {
+    props.handleClick();
   }
 
   return (
@@ -38,12 +40,14 @@ const Categories = () => {
 
 const Category = (props) => {
 
+  function handleClick() {
+    props.handleClick();
+  }
 
   return (
     <div className="category">
       <h2 className="category__heading">{props.name}</h2>
-      <ProductsList products={props.products} />
-      <ButtonSeeProduct />
+      <ProductsList products={props.products} handleClick={handleClick}/>
     </div>
   )
 }
@@ -52,8 +56,12 @@ const ProductsList = (props) => {
 
   let products = props.products
 
+  function handleClick() {
+    props.handleClick();
+  }
+
   let productsListItem = products.map( (product) => {
-    return <ProductsListItem key={product.id} product={product} />
+    return <ProductsListItem key={product.id} product={product} handleClick={handleClick}/>
   });
 
   return (
@@ -78,10 +86,17 @@ const ProductsListItem = (props) => {
 
   let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDeskotpUrl, windowSize);
 
+  function handleClick() {
+    props.handleClick();
+  }
+
   return (
     <li className="products-list__item" >
       <div className="image-product" style={{backgroundImage: `url(${imageUrl})`}}></div>
-      <ProductInfo item={product}/>
+      <div className="product-info-container">
+        <ProductInfo item={product}/>
+        <ButtonSeeProduct handleClick={handleClick()}/>
+      </div>
     </li>
   )
 }

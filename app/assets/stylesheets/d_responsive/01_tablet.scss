@@ -177,4 +177,34 @@
   .footer::before {
     left: 90px;
   }
+
+  /*-----------------CATEGORIE'S PRODUCTS-----------------------------------*/
+
+  .category {
+
+    &__heading {
+      padding-top: 105px;
+      padding-bottom: 97px;
+      font-size: 40px;
+    }
+
+    .products-list {
+      
+      &__item:first-child {
+        margin-top: 120px;
+      }
+
+      .product-info {
+
+        &__new {
+          margin-bottom: 16px;
+        }
+
+        &__name {
+          margin-bottom: 32px;
+          font-size: 40px;
+        }
+      }
+    }
+  }
 }

@@ -63,8 +63,8 @@ headphone_x59.mobile_image.attach(io: File.open("app/assets/images/products/prod
 headphone_x59.tablet_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/tablet/image-product.jpg"), filename: "image-product.jpg")
 headphone_x59.desktop_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/desktop/image-product.jpg"), filename: "image-product.jpg")
 headphone_x59.category_mobile_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/mobile/image-xx59.jpg"), filename: "image-xx59.jpg")
-headphone_x59.category_tablet_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/mobile/image-xx59.jpg"), filename: "image-xx59.jpg")
-headphone_x59.category_desktop_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/mobile/image-xx59.jpg"), filename: "image-xx59.jpg")
+headphone_x59.category_tablet_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/tablet/image-xx59.jpg"), filename: "image-xx59.jpg")
+headphone_x59.category_desktop_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/desktop/image-xx59.jpg"), filename: "image-xx59.jpg")
 
 headphone_x99_I.mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/mobile/image-product.jpg"), filename: "image-product.jpg")
 headphone_x99_I.tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/tablet/image-product.jpg"), filename: "image-product.jpg")

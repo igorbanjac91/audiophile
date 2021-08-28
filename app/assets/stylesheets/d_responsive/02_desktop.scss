@@ -45,7 +45,6 @@
         letter-spacing: 2px;
       }
     }
-
   }
 
   /*-----------------MAIN PRODUCT-----------------------------------*/
@@ -174,7 +173,7 @@
 
    /*-----------------ABOUT-----------------------------------*/
   
-   .about {
+  .about {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -237,5 +236,42 @@
 
   .footer::before {
     left: 150px;
+  }
+
+   /*-----------------CATEGORIE'S PRODUCTS-----------------------------------*/
+
+  .category {
+    text-align: left;
+
+    &__heading {
+      padding-top: 98px;
+      padding-bottom: 98px;
+    }
+
+    .products-list {
+
+      &__item {
+        flex-direction: row;
+        align-items: center;
+        
+        .product-info-container {
+          padding-left: 125px;
+        }
+      }
+      
+      &__item:nth-child(even) {
+        flex-direction: row-reverse;
+
+        .product-info-container {
+          padding-left: 0;
+          padding-right: 125px;
+        }
+      }
+
+      &__item:first-child {
+        margin-top: 160px;
+      }
+
+    }
   }
 }

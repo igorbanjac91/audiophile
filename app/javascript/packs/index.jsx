@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/home/Home';
 import Categories from './components/categories/Categories';
-import Products from './components/products/Products';
+import Product from './components/products/Product';
 import Nav from "./components/Nav";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/categories/:name" component={Categories} />
-            <Route exact path="/products/:slug" component={Products} />       
+            <Route exact path="/products/:name" component={Product} />       
           </Switch>
         </div>
       </Router>
