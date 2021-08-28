@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import CategoriesList from "../shared/CategoriesList";
 import ProductInfo from "../products/ProductInfo";
 import { useWindowSize, setImage } from "../utils";
+import ButtonSeeProduct from "../shared/ButtonSeeProduct";
 
 const Categories = () => {
 
@@ -42,6 +43,7 @@ const Category = (props) => {
     <div className="category">
       <h2 className="category__heading">{props.name}</h2>
       <ProductsList products={props.products} />
+      <ButtonSeeProduct />
     </div>
   )
 }
