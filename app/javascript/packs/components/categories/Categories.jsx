@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CategoriesList from "../shared/CategoriesList";
 import ProductInfo from "../products/ProductInfo";
+import { useWindowSize, setImage } from "../utils";
 
 const Categories = () => {
 
@@ -18,6 +19,7 @@ const Categories = () => {
     axios
       .get(`/api/v1/products?category=${param.name}`)
       .then( response => {
+        console.log(response.data)
         let fetchedProducts = response.data
         setProducts(fetchedProducts);
       }).catch( e => {
@@ -38,7 +40,7 @@ const Category = (props) => {
 
   return (
     <div className="category">
-      <h2 className="category__header">{props.name}</h2>
+      <h2 className="category__heading">{props.name}</h2>
       <ProductsList products={props.products} />
     </div>
   )
@@ -64,10 +66,20 @@ const ProductsList = (props) => {
 
 const ProductsListItem = (props) => {
 
+  let product = props.product
+
+  let imageMobileUrl = product.images.category_mobile_image_url;
+  let imageTabletUrl = product.images.category_tablet_image_url;
+  let imageDeskotpUrl = product.images.category_desktop_image_url;
+
+  const windowSize = useWindowSize();
+
+  let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDeskotpUrl, windowSize);
+
   return (
     <li className="products-list__item" >
-      <img src="" alt="" />
-      <ProductInfo item={props.product}/>
+      <div className="image-product" style={{backgroundImage: `url(${imageUrl})`}}></div>
+      <ProductInfo item={product}/>
     </li>
   )
 }

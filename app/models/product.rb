@@ -11,5 +11,12 @@ class Product < ApplicationRecord
 
   has_many :line_items
   has_many :orders, through: :line_items
+
+  has_one_attached :mobile_image
+  has_one_attached :tablet_image
+  has_one_attached :desktop_image
+  has_one_attached :category_mobile_image
+  has_one_attached :category_tablet_image
+  has_one_attached :category_desktop_image
 end
 
