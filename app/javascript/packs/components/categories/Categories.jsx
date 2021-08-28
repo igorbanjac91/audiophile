@@ -26,10 +26,6 @@ const Categories = () => {
       }) 
   }
 
-  function handleClick() {
-    props.handleClick();
-  }
-
   return (
     <div className="categories">
       <Category name={param.name} products={products} />
@@ -40,14 +36,10 @@ const Categories = () => {
 
 const Category = (props) => {
 
-  function handleClick() {
-    props.handleClick();
-  }
-
   return (
     <div className="category">
       <h2 className="category__heading">{props.name}</h2>
-      <ProductsList products={props.products} handleClick={handleClick}/>
+      <ProductsList products={props.products} />
     </div>
   )
 }
@@ -56,12 +48,8 @@ const ProductsList = (props) => {
 
   let products = props.products
 
-  function handleClick() {
-    props.handleClick();
-  }
-
   let productsListItem = products.map( (product) => {
-    return <ProductsListItem key={product.id} product={product} handleClick={handleClick}/>
+    return <ProductsListItem key={product.id} product={product} />
   });
 
   return (
@@ -85,17 +73,13 @@ const ProductsListItem = (props) => {
   const windowSize = useWindowSize();
 
   let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDeskotpUrl, windowSize);
-
-  function handleClick() {
-    props.handleClick();
-  }
-
+  
   return (
     <li className="products-list__item" >
       <div className="image-product" style={{backgroundImage: `url(${imageUrl})`}}></div>
       <div className="product-info-container">
         <ProductInfo item={product}/>
-        <ButtonSeeProduct handleClick={handleClick()}/>
+        <ButtonSeeProduct slug={product.slug} />
       </div>
     </li>
   )

@@ -1,14 +1,9 @@
-import { func } from "prop-types";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ButtonSeeProduct = (props) => {
-
-  function handleClick() {
-    props.handleClick();
-  }
-
   return (
-    <button className="btn-see-product" onClick={handleClick}>SEE PRODUCT</button>
+    <Link to={`/products/${props.slug}`} className="btn-see-product">SEE PRODUCT</Link>
   )
 }
 
