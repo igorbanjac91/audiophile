@@ -7,7 +7,7 @@ const ProductInfo = (props) => {
       { props.item.new && <span className="product-info__new">NEW PRODUCT</span> }
       { props.item.name && <h2 className="product-info__name">{props.item.name}</h2> }
       { props.item.description && <p className="product-info__description">{props.item.description}</p> }
-      { props.showPrice && <span className="product-info__price">{props.item.price}</span> }
+      { props.showPrice && <span className="product-info__price">$ {props.item.price}</span> }
     </div>
   )
 }

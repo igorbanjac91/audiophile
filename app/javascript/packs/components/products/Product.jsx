@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import ProductInfo from "./ProductInfo";
 import { useWindowSize, setImage } from "../utils";
 
-const Product = () => {
+const Product = (props) => {
 
   let param = useParams();
   const [ product, setProduct ] = useState();
@@ -17,6 +17,7 @@ const Product = () => {
     axios
     .get(`/api/v1/products/${param.name}`)
     .then( response => {
+      console.log(response.data)
       let fetchedProduct = response.data
       setProduct(fetchedProduct);
     }).catch( e => {
@@ -24,12 +25,18 @@ const Product = () => {
     })
   }  
 
+  function handleClick(e) {
+    e.preventDefault()
+    props.history.goBack();
+  }
+
   return (
     <div className="product">
       { product && 
         <div>
+          <a className="product__go-back-link" onClick={handleClick}>Go Back</a>
           <TopPage product={product}/>
-          <Features features={product.features} description={product.description} />
+          <Features features={product.features} />
           <BoxContent />
           <ProductGallery gallery={product.images.gallery} />
           <MayLike />
@@ -55,7 +62,7 @@ const TopPage = (props) => {
     <section className="product__top-page">
       <div className="product-image" style={{backgroundImage: `url(${imageUrl})`}}></div> 
       <div className="product-main-content">
-        <ProductInfo item={product}/>
+        <ProductInfo item={product} showPrice={true} />
         <AddToCartButon />
       </div>
     </section>   
@@ -71,11 +78,19 @@ const AddToCartButon = () => {
 
 
 const Features = (props) => {
+
+  let newText = props.features.split('\n\n')
+
+  let paragraphs = newText.map( (paragraphText) => {
+    return <p>{paragraphText}</p>
+  })
+
+  console.log(newText);
+
   return (
     <div className="product__features">
       <h3>FEATURES</h3>
-      <p>{props.description}</p>
-      <p>{props.features}</p>
+      {paragraphs}
     </div>
   )
 }
