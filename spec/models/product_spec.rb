@@ -23,6 +23,7 @@ RSpec.describe Product, type: :model do
 
     it { should have_many(:orders).through(:line_items) }
     it { should belong_to(:category) }
+    it { should have_many(:accessories) }
 
   end
 end

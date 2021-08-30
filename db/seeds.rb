@@ -50,6 +50,55 @@ speaker_zx9 = Product.find_or_create_by(name: "ZX9 Speaker",
                                         new: true,
                                         category: speakers)
 
+# ----------------------- Accessories --------------------------------
+
+# --------- Earphones YX1 
+
+earphones_yx1.accessories.create(quantity: 2, name: "Earphone unit")
+earphones_yx1.accessories.create(quantity: 6, name: "Mulit-size earplugs")
+earphones_yx1.accessories.create(quantity: 1, name: "User manual")
+earphones_yx1.accessories.create(quantity: 1, name: "USB-C charging cable")
+earphones_yx1.accessories.create(quantity: 1, name: "Travel pouch")
+
+# --------- Headphones XX59
+
+headphone_x59.accessories.create(quantity: 1, name: "Headphone unit")
+headphone_x59.accessories.create(quantity: 2, name: "Replacement earcups")
+headphone_x59.accessories.create(quantity: 1, name: "User manual")
+headphone_x59.accessories.create(quantity: 1, name: "3.5mm 5m audio cable")
+
+# --------- Headphones XX99 Mark I
+
+headphone_x99_I.accessories.create(quantity: 1, name: "Headphone unit")
+headphone_x99_I.accessories.create(quantity: 2, name: "Replacement earcups")
+headphone_x99_I.accessories.create(quantity: 1, name: "User manual")
+headphone_x99_I.accessories.create(quantity: 1, name: "3.5mm 5m audio cable")
+
+# --------- Headphones XX99 Mark I
+
+headphone_x99_II.accessories.create(quantity: 1, name: "Headphone unit")
+headphone_x99_II.accessories.create(quantity: 2, name: "Replacement earcups")
+headphone_x99_II.accessories.create(quantity: 1, name: "User manual")
+headphone_x99_II.accessories.create(quantity: 1, name: "3.5mm 5m audio cable")
+headphone_x99_II.accessories.create(quantity: 1, name: "Travel bag")
+
+# --------- Speaker ZX7
+
+speaker_zx7.accessories.create(quantity: 1, name: "Speaker unit")
+speaker_zx7.accessories.create(quantity: 2, name: "Speaker cloth panel")
+speaker_zx7.accessories.create(quantity: 1, name: "User manual")
+speaker_zx7.accessories.create(quantity: 1, name: "3.5mm 7.5mm audio cable")
+speaker_zx7.accessories.create(quantity: 1, name: "7.5m optical cable")
+
+# --------- Speaker ZX9
+
+speaker_zx9.accessories.create(quantity: 1, name: "Speaker unit")
+speaker_zx9.accessories.create(quantity: 2, name: "Speaker cloth panel")
+speaker_zx9.accessories.create(quantity: 1, name: "User manual")
+speaker_zx9.accessories.create(quantity: 1, name: "3.5mm 7.5mm audio cable")
+speaker_zx9.accessories.create(quantity: 1, name: "10m optical cable")
+
+
 # ----------------------- Attach images ------------------------------
 
 earphones_yx1.mobile_image.attach(io: File.open("app/assets/images/products/product-yx1-earphones/mobile/image-product.jpg"), filename: "image-prduct.jpg")
