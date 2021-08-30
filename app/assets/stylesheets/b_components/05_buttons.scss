@@ -1,10 +1,12 @@
-.btn-see-product {
+.btn-see-product,
+.btn-add-to-cart {
   display: inline-block;
   padding: 15px 30px;
   font-family: 'Manrope', sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: $white;
+  text-transform: uppercase;
   cursor: pointer;
   background-color: $primary;
   border: none;
@@ -13,6 +15,10 @@
 
 .btn-see-product:hover {
   background-color: $primary-light;
+}
+
+.btn-add-to-cart {
+  width: 160px;
 }
 
 .btn-shop {

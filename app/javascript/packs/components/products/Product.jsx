@@ -3,21 +3,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ProductInfo from "./ProductInfo";
 import { useWindowSize, setImage } from "../utils";
+import setAxiosHeaders from "../AxiosHeaders";
 
 const Product = (props) => {
 
   let param = useParams();
   const [ product, setProduct ] = useState();
+  let [ quantity, setQuantity ] = useState(1);
 
   useEffect(() => {
-    fetchProduct()
+    fetchProduct();
   }, []);
   
   function fetchProduct() {
     axios
     .get(`/api/v1/products/${param.name}`)
     .then( response => {
-      console.log(response.data)
       let fetchedProduct = response.data
       setProduct(fetchedProduct);
     }).catch( e => {
@@ -26,8 +27,43 @@ const Product = (props) => {
   }  
 
   function handleClick(e) {
-    e.preventDefault()
+    e.preventDefault();
     props.history.goBack();
+  }
+
+  function handleChangeQuantity(e) {
+    e.preventDefault();
+    let sign = e.target.textContent;
+    switch (sign) {
+      case "+":
+        setQuantity(quantity += 1);
+        break;
+      case "-":
+        if (quantity == 1) {
+          break;
+        }
+        setQuantity(quantity -= 1);
+        break;
+      default:
+        console.log("error");
+        break;
+    }
+  }
+
+  function handleAddToCart() {
+    setAxiosHeaders();
+
+    const formData = new FormData();
+    formData.append("line_item[quantity]", quantity);
+    formData.append("line_item[product_id]", product.id);
+
+    axios
+      .post("/api/v1/line_items", formData)
+      .then( response => {
+        console.log(response)
+      }).catch((e) => {
+        console.log(e)
+      })
   }
 
   return (
@@ -35,7 +71,10 @@ const Product = (props) => {
       { product && 
         <div>
           <a className="product__go-back-link" onClick={handleClick}>Go Back</a>
-          <TopPage product={product}/>
+          <TopPage product={product} 
+                   quantity={quantity} 
+                   handleChangeQuantity={handleChangeQuantity} 
+                   handleAddToCart={handleAddToCart} />
           <Features features={product.features} />
           <BoxContent accessories={product.accessories} />
           <ProductGallery gallery={product.images.gallery} />
@@ -48,8 +87,8 @@ const Product = (props) => {
 
 const TopPage = (props) => {
 
-  let product = props.product
-  let images = product.images
+  let product = props.product;
+  let images = product.images;
   const windowSize = useWindowSize();
 
   let imageMobileUrl = images.mobile_image_url;
@@ -58,34 +97,64 @@ const TopPage = (props) => {
 
   let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDesktopUrl, windowSize);
 
+  function handleChangeQuantity(e) {
+    props.handleChangeQuantity(e);
+  }
+
+  function handleAddToCart() {
+    props.handleAddToCart();
+  }
+
   return (
     <section className="product__top-page">
       <div className="product-image" style={{backgroundImage: `url(${imageUrl})`}}></div> 
       <div className="product-main-content">
         <ProductInfo item={product} showPrice={true} />
-        <AddToCartButon />
+        <div className="product-action">
+          <ProductSelectQuantity product={product} handleChangeQuantity={handleChangeQuantity} quantity={props.quantity}/>
+          <AddToCartButon handleAddToCart={handleAddToCart} />
+        </div>
       </div>
     </section>   
   )
 }
 
-const AddToCartButon = () => {
-  
+const ProductSelectQuantity = (props) => {
+
+  let quantity = props.quantity;
+
+  function handleChangeQuantity(e) {
+    props.handleChangeQuantity(e);
+  }
+
   return (
-    <button>Add To Cart</button>
+    <div className="select-quantity">
+      <button onClick={handleChangeQuantity}>-</button>
+      <span>{quantity}</span>
+      <button onClick={handleChangeQuantity}>+</button>
+    </div>
+  )
+}
+
+const AddToCartButon = (props) => {
+  
+  function handleAddToCart() {
+    props.handleAddToCart();
+  }
+
+  return (
+    <button className="btn-add-to-cart" onClick={handleAddToCart} >Add To Cart</button>
   )
 }
 
 
 const Features = (props) => {
 
-  let newText = props.features.split('\n\n')
+  let newText = props.features.split('\n\n');
 
   let paragraphs = newText.map( (paragraphText, index) => {
     return <p key={index}>{paragraphText}</p>
   })
-
-  console.log(newText);
 
   return (
     <div className="product__features">

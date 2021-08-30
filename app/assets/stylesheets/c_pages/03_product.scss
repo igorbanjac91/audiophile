@@ -29,6 +29,32 @@
 
     .product-main-content {
 
+      .product-action {
+        display: flex;
+        justify-content: space-between;
+
+        .select-quantity {
+          box-sizing: border-box;
+          display: flex;
+          justify-content: space-between;
+          width: 120px;
+          padding: 15px;
+          font-size: 13px;
+          background-color: $light;
+
+          span {
+            font-weight: 700;
+            letter-spacing: 1px;
+          }
+
+          button {
+            background-color: transparent;
+            border: none;
+            opacity: .25;
+          }
+        }
+      }
+
       .product-info {
 
         &__new {
@@ -43,6 +69,7 @@
           margin-bottom: 24px;
           font-size: 28px;
           font-weight: 700;
+          text-transform: uppercase;
           letter-spacing: 1px;
         }
         
