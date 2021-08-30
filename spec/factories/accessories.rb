@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :accessory do
     quantity { 1 }
-    name { "MyString" }
+    name { "user manual" }
+    product
   end
 end

@@ -33,3 +33,6 @@ json.images do
     end
   end
 end
+json.accessories do 
+  json.array! product.accessories
+end

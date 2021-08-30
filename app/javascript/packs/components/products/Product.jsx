@@ -37,7 +37,7 @@ const Product = (props) => {
           <a className="product__go-back-link" onClick={handleClick}>Go Back</a>
           <TopPage product={product}/>
           <Features features={product.features} />
-          <BoxContent />
+          <BoxContent accessories={product.accessories} />
           <ProductGallery gallery={product.images.gallery} />
           <MayLike />
         </div> 
@@ -81,8 +81,8 @@ const Features = (props) => {
 
   let newText = props.features.split('\n\n')
 
-  let paragraphs = newText.map( (paragraphText) => {
-    return <p>{paragraphText}</p>
+  let paragraphs = newText.map( (paragraphText, index) => {
+    return <p key={index}>{paragraphText}</p>
   })
 
   console.log(newText);
@@ -95,30 +95,39 @@ const Features = (props) => {
   )
 }
 
-const BoxContent = () => {
+const BoxContent = (props) => {
 
   return (
     <div className="product__box-content">
       <h3>IN THE BOX</h3>
-      <BoxContentList />
+      <BoxContentList accessories={props.accessories} />
     </div>
   )
 }
 
-const BoxContentList = () => {
+const BoxContentList = (props) => {
+
+  let accessories = props.accessories
+
+  let accessoriesItems = accessories.map( (accesory) => {
+    return <BoxContentListItem key={accesory.id} accesory={accesory} />
+  })
 
   return (
     <ul className="box-content-list">
-
+      {accessoriesItems}
     </ul>
   )
 }
 
-const BoxContentListItem = () => {
+const BoxContentListItem = (props) => {
+
+  let accesory = props.accesory
 
   return (
     <li className="box-content-list__item">
-      <span></span>
+      <span>{accesory.quantity}x</span>
+      {accesory.name}
     </li>
   )
 }

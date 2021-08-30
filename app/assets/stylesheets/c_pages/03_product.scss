@@ -51,7 +51,7 @@
           font-size: 15px;
           font-weight: 200;
           line-height: 25px;
-          opacity: .8;
+          opacity: .5;
           
         }
         
@@ -95,6 +95,25 @@
       font-size: 24px;
       font-weight: 700;
       line-height: 36px;
+    }
+
+    .box-content-list {
+
+      &__item {
+        margin-bottom: 8px;
+        font-size: 15px;
+        font-weight: 200;
+        line-height: 25px;
+        opacity: .5;
+
+        span {
+          display: inline-block;
+          margin-right: 21px;
+          font-weight: 700;
+          color: $primary;
+          opacity: 1;
+        }
+      }
     }
   }
 
