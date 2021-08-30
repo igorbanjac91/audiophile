@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ProductInfo from "./ProductInfo";
 import { useWindowSize, setImage } from "../utils";
+import ButtonSeeProduct from "../shared/ButtonSeeProduct";
+import CategoriesList from "../shared/CategoriesList";
 import setAxiosHeaders from "../AxiosHeaders";
 
 const Product = (props) => {
@@ -79,7 +81,8 @@ const Product = (props) => {
           <Features features={product.features} />
           <BoxContent accessories={product.accessories} />
           <ProductGallery gallery={product.images.gallery} />
-          <MayLike alsoLike={product.also_like}/>
+          <AlsoLike alsoLike={product.also_like}/>
+          <CategoriesList />
         </div> 
       }
     </div>
@@ -237,41 +240,51 @@ const ProductGallery = (props) => {
   )
 }
 
-const MayLike = (props) => {
+const AlsoLike = (props) => {
 
   let alsoLike = props.alsoLike
 
   return (
-    <div className="prdouct__may-like">
+    <div className="product__also-like">
       <h3>YOU MAY ALSO LIKE</h3>
-      <MayLikeList alsoLike={alsoLike} />
+      <AlsoLikeList alsoLike={alsoLike} />
     </div>
   )
 }
 
-const MayLikeList = (props) => {
+const AlsoLikeList = (props) => {
 
   let alsoLike = props.alsoLike;
 
-  listItems = alsoLike.map( (item) => {
-    return <MayLikeListItem key={item.id} item={item} />
+  let listItems = alsoLike.map( (item) => {
+    return <AlsoLikeListItem key={item.id} item={item} />
   })
 
   return (
-    <ul className="may-like-list">
+    <ul className="also-like-list">
       {listItems}
     </ul>
   )
 }
 
-const MayLikeListItem = (props) => {
+const AlsoLikeListItem = (props) => {
 
   let item = props.item
+  const windowSize = useWindowSize();
+
+  let imageMobileUrl = item.mobile_image_url;
+  let imageTabletUrl = item.tablet_image_url;
+  let imageDesktopUrl = item.desktop_image_url;
+
+  let imageUrl = setImage(imageMobileUrl, imageTabletUrl, imageDesktopUrl, windowSize);
 
   return (
-    <li className="may-like-list__item">
-      <div clasName="may-like-image" style={{ backgroundImage: `url()`}}></div>
-      <ProductInfo item={item} />
+    <li className="also-like-list__item">
+      <div className="also-like-image" style={{ backgroundImage: `url(${imageUrl})`}}></div>
+      <div className="info-container">
+        <h4>{item.name}</h4>
+        <ButtonSeeProduct />
+      </div>
     </li>
   )
 }

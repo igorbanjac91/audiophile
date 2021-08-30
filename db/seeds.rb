@@ -107,6 +107,7 @@ earphones_yx1.desktop_image.attach(io: File.open("app/assets/images/products/pro
 earphones_yx1.category_mobile_image.attach(io: File.open("app/assets/images/products/product-yx1-earphones/category/mobile/image-yx1-earphones.jpg"), filename: "image-yx1-earphones.jpg")
 earphones_yx1.category_tablet_image.attach(io: File.open("app/assets/images/products/product-yx1-earphones/category/tablet/image-yx1-earphones.jpg"), filename: "image-yx1-earphones.jpg")
 earphones_yx1.category_desktop_image.attach(io: File.open("app/assets/images/products/product-yx1-earphones/category/desktop/image-yx1-earphones.jpg"), filename: "image-yx1-earphones.jpg")
+earphones_yx1.cart_image.attach(io: File.open("app/assets/images/products/product-yx1-earphones/cart/image-yx1-earphones.jpg"), filename: "image-yx1-earphones.jpg")
 
 headphone_x59.mobile_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/mobile/image-product.jpg"), filename: "image-product.jpg")
 headphone_x59.tablet_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/tablet/image-product.jpg"), filename: "image-product.jpg")
@@ -114,6 +115,10 @@ headphone_x59.desktop_image.attach(io: File.open("app/assets/images/products/pro
 headphone_x59.category_mobile_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/mobile/image-xx59.jpg"), filename: "image-xx59.jpg")
 headphone_x59.category_tablet_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/tablet/image-xx59.jpg"), filename: "image-xx59.jpg")
 headphone_x59.category_desktop_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/category/desktop/image-xx59.jpg"), filename: "image-xx59.jpg")
+headphone_x59.also_like_mobile_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/mobile/image-xx59-headphones.jpg"), filename: "image-xx59-headphones.jpg")
+headphone_x59.also_like_tablet_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/tablet/image-xx59-headphones.jpg"), filename: "image-xx59-headphones.jpg")
+headphone_x59.also_like_desktop_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/desktop/image-xx59-headphones.jpg"), filename: "image-xx59-headphones.jpg")
+headphone_x59.cart_image.attach(io: File.open("app/assets/images/products/product-xx59-headphones/cart/image-xx59-headphones.jpg"), filename: "image-xx59-headphones.jpg")
 
 headphone_x99_I.mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/mobile/image-product.jpg"), filename: "image-product.jpg")
 headphone_x99_I.tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/tablet/image-product.jpg"), filename: "image-product.jpg")
@@ -121,6 +126,10 @@ headphone_x99_I.desktop_image.attach(io: File.open("app/assets/images/products/p
 headphone_x99_I.category_mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/category/mobile/image-xx99-mark-one.jpg"), filename: "image-xx99-mark-one.jpg")
 headphone_x99_I.category_tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/category/tablet/image-xx99-mark-one.jpg"), filename: "image-xx99-mark-one.jpg")
 headphone_x99_I.category_desktop_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/category/desktop/image-xx99-mark-one.jpg"), filename: "image-xx99-mark-one.jpg")
+headphone_x99_I.also_like_mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/mobile/image-xx99-mark-one-headphones.jpg"), filename: "image-xx99-mark-one-headphones.jpg")
+headphone_x99_I.also_like_tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/tablet/image-xx99-mark-one-headphones.jpg"), filename: "image-xx99-mark-one-headphones.jpg")
+headphone_x99_I.also_like_desktop_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/desktop/image-xx99-mark-one-headphones.jpg"), filename: "image-xx99-mark-one-headphones.jpg")
+headphone_x99_I.cart_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/cart/image-xx99-mark-one-headphones.jpg"), filename: "image-xx99-mark-one-headphones.jpg")
 
 headphone_x99_II.mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/mobile/image-product.jpg"), filename: "image-product.jpg")
 headphone_x99_II.tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/tablet/image-product.jpg"), filename: "image-product.jpg")
@@ -128,6 +137,10 @@ headphone_x99_II.desktop_image.attach(io: File.open("app/assets/images/products/
 headphone_x99_II.category_mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/category/mobile/image-xx99-mark-two.jpg"), filename: "image-xx99-mark-two.jpg")
 headphone_x99_II.category_tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/category/tablet/image-xx99-mark-two.jpg"), filename: "image-xx99-mark-two.jpg")
 headphone_x99_II.category_desktop_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/category/desktop/image-xx99-mark-two.jpg"), filename: "image-xx99-mark-two.jpg")
+headphone_x99_II.also_like_mobile_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/mobile/image-xx99-mark-two-headphones.jpg"), filename: "image-xx99-mark-two-headphones.jpg")
+headphone_x99_II.also_like_tablet_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/tablet/image-xx99-mark-two-headphones.jpg"), filename: "image-xx99-mark-two-headphones.jpg")
+headphone_x99_II.also_like_desktop_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/desktop/image-xx99-mark-two-headphones.jpg"), filename: "image-xx99-mark-two-headphones.jpg")
+headphone_x99_II.cart_image.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/cart/image-xx99-mark-two-headphones.jpg"), filename: "image-xx99-mark-two-headphones.jpg")
 
 speaker_zx7.mobile_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/mobile/image-product.jpg"), filename: "image-product.jpg")
 speaker_zx7.tablet_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/tablet/image-product.jpg"), filename: "image-product.jpg")
@@ -135,6 +148,10 @@ speaker_zx7.desktop_image.attach(io: File.open("app/assets/images/products/produ
 speaker_zx7.category_mobile_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/category/mobile/image-zx7.jpg"), filename: "image-zx7.jpg")
 speaker_zx7.category_tablet_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/category/tablet/image-zx7.jpg"), filename: "image-zx7.jpg")
 speaker_zx7.category_desktop_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/category/desktop/image-zx7.jpg"), filename: "image-zx7.jpg")
+speaker_zx7.also_like_mobile_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/mobile/image-zx7-speaker.jpg"), filename: "image-zx7-speaker.jpg")
+speaker_zx7.also_like_tablet_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/tablet/image-zx7-speaker.jpg"), filename: "image-zx7-speaker.jpg")
+speaker_zx7.also_like_desktop_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/desktop/image-zx7-speaker.jpg"), filename: "image-zx7-speaker.jpg")
+speaker_zx7.cart_image.attach(io: File.open("app/assets/images/products/product-zx7-speaker/cart/image-zx7-speaker.jpg"), filename: "image-zx7-speaker.jpg")
 
 speaker_zx9.mobile_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/mobile/image-product.jpg"), filename: "image-product.jpg")
 speaker_zx9.tablet_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/tablet/image-product.jpg"), filename: "image-product.jpg")
@@ -142,6 +159,11 @@ speaker_zx9.desktop_image.attach(io: File.open("app/assets/images/products/produ
 speaker_zx9.category_mobile_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/category/mobile/image-zx9.jpg"), filename: "image-zx9.jpg")
 speaker_zx9.category_tablet_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/category/tablet/image-zx9.jpg"), filename: "image-zx9.jpg")
 speaker_zx9.category_desktop_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/category/desktop/image-zx9.jpg"), filename: "image-zx9.jpg")
+speaker_zx9.also_like_mobile_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/mobile/image-zx9-speaker.jpg"), filename: "image-zx9-speaker.jpg")
+speaker_zx9.also_like_tablet_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/tablet/image-zx9-speaker.jpg"), filename: "image-zx9-speaker.jpg")
+speaker_zx9.also_like_desktop_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/desktop/image-zx9-speaker.jpg"), filename: "image-zx9-speaker.jpg")
+speaker_zx9.cart_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/cart/image-zx9-speaker.jpg"), filename: "image-zx9-speaker.jpg")
+
 
 # --------------------------- Gallery Images ------------------------------------------------
 
@@ -216,19 +238,19 @@ headphone_x99_II.desktop_gallery_images.attach(io: File.open("app/assets/images/
 # ------------ Speaker zx7
 
 # --- mobile
-speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
-speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
-speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
 
 # --- tablet
-speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
-speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
-speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
 
 # --- desktop
-speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
-speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
-speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx7-speaker/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
 
 # ------------ Speaker zx9
 
