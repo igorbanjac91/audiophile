@@ -3,12 +3,12 @@ speakers = Category.find_or_create_by(name: "speakers" )
 headphones = Category.find_or_create_by(name: "headphones" )
 
 earphones_yx1 = Product.find_or_create_by(name: "YX1 Wireless Earphones",
-                                              slug: "yx1-earphones",
-                                              description: "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
-                                              features: "Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with the perfect fit, delivering complete comfort all day long while enjoying exceptional noise isolation and truly immersive sound.\n\nThe YX1 Wireless Earphones features customizable controls for volume, music, calls, and voice assistants built into both earbuds. The new 7-hour battery life can be extended up to 28 hours with the charging case, giving you uninterrupted play time. Exquisite craftsmanship with a splash resistant design now available in an all new white and grey color scheme as well as the popular classic black.", 
-                                              price: 599, 
-                                              new: true,
-                                              category: earphones )
+                                          slug: "yx1-earphones",
+                                          description: "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
+                                          features: "Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with the perfect fit, delivering complete comfort all day long while enjoying exceptional noise isolation and truly immersive sound.\n\nThe YX1 Wireless Earphones features customizable controls for volume, music, calls, and voice assistants built into both earbuds. The new 7-hour battery life can be extended up to 28 hours with the charging case, giving you uninterrupted play time. Exquisite craftsmanship with a splash resistant design now available in an all new white and grey color scheme as well as the popular classic black.", 
+                                          price: 599, 
+                                          new: true,
+                                          category: earphones )
 
 headphone_x59 = Product.find_or_create_by(name: "XX59 Headphones",
                                           slug: "xx59-headphones",
@@ -145,6 +145,8 @@ speaker_zx9.category_desktop_image.attach(io: File.open("app/assets/images/produ
 
 # --------------------------- Gallery Images ------------------------------------------------
 
+# ------------ Earphones_yx1
+
 # --- mobile
 earphones_yx1.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
 earphones_yx1.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
@@ -159,4 +161,92 @@ earphones_yx1.tablet_gallery_images.attach(io: File.open("app/assets/images/prod
 earphones_yx1.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
 earphones_yx1.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
 earphones_yx1.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# ------------ Headphones X59
+
+# --- mobile
+headphone_x59.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x59.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x59.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- tablet
+headphone_x59.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x59.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x59.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- desktop
+headphone_x59.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x59.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x59.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx59-headphones/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# ------------ Headphone x99 mark one
+
+# --- mobile
+headphone_x99_I.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x99_I.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x99_I.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- tablet
+headphone_x99_I.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x99_I.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x99_I.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- desktop
+headphone_x99_I.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x99_I.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x99_I.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# ------------ Headphones x99 mark two
+
+# --- mobile
+headphone_x99_II.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x99_II.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x99_II.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- tablet
+headphone_x99_II.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x99_II.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x99_II.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- desktop
+headphone_x99_II.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+headphone_x99_II.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+headphone_x99_II.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# ------------ Speaker zx7
+
+# --- mobile
+speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx7.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- tablet
+speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx7.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- desktop
+speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx7.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx1-speaker/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# ------------ Speaker zx9
+
+# --- mobile
+speaker_zx9.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx9.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx9.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- tablet
+speaker_zx9.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx9.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx9.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- desktop
+speaker_zx9.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+speaker_zx9.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+speaker_zx9.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-zx9-speaker/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+
+
 

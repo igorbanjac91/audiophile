@@ -19,6 +19,7 @@ const Product = (props) => {
     axios
     .get(`/api/v1/products/${param.name}`)
     .then( response => {
+      console.log(response.data)
       let fetchedProduct = response.data
       setProduct(fetchedProduct);
     }).catch( e => {
@@ -78,7 +79,7 @@ const Product = (props) => {
           <Features features={product.features} />
           <BoxContent accessories={product.accessories} />
           <ProductGallery gallery={product.images.gallery} />
-          <MayLike />
+          <MayLike alsoLike={product.also_like}/>
         </div> 
       }
     </div>
@@ -236,28 +237,43 @@ const ProductGallery = (props) => {
   )
 }
 
-const MayLike = () => {
+const MayLike = (props) => {
+
+  let alsoLike = props.alsoLike
 
   return (
     <div className="prdouct__may-like">
-      <MayLikeList />
+      <h3>YOU MAY ALSO LIKE</h3>
+      <MayLikeList alsoLike={alsoLike} />
     </div>
   )
 }
 
-const MayLikeList = () => {
+const MayLikeList = (props) => {
+
+  let alsoLike = props.alsoLike;
+
+  listItems = alsoLike.map( (item) => {
+    return <MayLikeListItem key={item.id} item={item} />
+  })
+
   return (
     <ul className="may-like-list">
-      
+      {listItems}
     </ul>
   )
 }
 
-const MayLikeListItem = () => {
-  <li className="may-like-list__item">
-    <div clasName="may-like-image" style={{ backgroundImage: `url()`}}></div>
-    <ProductInfo />
-  </li>
+const MayLikeListItem = (props) => {
+
+  let item = props.item
+
+  return (
+    <li className="may-like-list__item">
+      <div clasName="may-like-image" style={{ backgroundImage: `url()`}}></div>
+      <ProductInfo item={item} />
+    </li>
+  )
 }
 
 export default Product;
