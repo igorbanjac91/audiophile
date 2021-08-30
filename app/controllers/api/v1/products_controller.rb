@@ -10,6 +10,6 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find_by(slug: params[:id])
   end
 end

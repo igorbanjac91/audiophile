@@ -94,3 +94,20 @@ speaker_zx9.category_mobile_image.attach(io: File.open("app/assets/images/produc
 speaker_zx9.category_tablet_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/category/tablet/image-zx9.jpg"), filename: "image-zx9.jpg")
 speaker_zx9.category_desktop_image.attach(io: File.open("app/assets/images/products/product-zx9-speaker/category/desktop/image-zx9.jpg"), filename: "image-zx9.jpg")
 
+# --------------------------- Gallery Images ------------------------------------------------
+
+# --- mobile
+earphones_yx1.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/mobile/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+earphones_yx1.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/mobile/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+earphones_yx1.mobile_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/mobile/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- tablet
+earphones_yx1.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/tablet/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+earphones_yx1.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/tablet/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+earphones_yx1.tablet_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/tablet/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+
+# --- desktop
+earphones_yx1.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/desktop/image-gallery-1.jpg"), filename: "image-gallery-1.jpg")
+earphones_yx1.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/desktop/image-gallery-2.jpg"), filename: "image-gallery-2.jpg")
+earphones_yx1.desktop_gallery_images.attach(io: File.open("app/assets/images/products/product-yx1-earphones/desktop/image-gallery-3.jpg"), filename: "image-gallery-3.jpg")
+

@@ -18,5 +18,9 @@ class Product < ApplicationRecord
   has_one_attached :category_mobile_image
   has_one_attached :category_tablet_image
   has_one_attached :category_desktop_image
+
+  has_many_attached :mobile_gallery_images
+  has_many_attached :tablet_gallery_images
+  has_many_attached :desktop_gallery_images
 end
 
