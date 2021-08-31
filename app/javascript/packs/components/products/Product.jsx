@@ -78,8 +78,10 @@ const Product = (props) => {
                    quantity={quantity} 
                    handleChangeQuantity={handleChangeQuantity} 
                    handleAddToCart={handleAddToCart} />
-          <Features features={product.features} />
-          <BoxContent accessories={product.accessories} />
+          <div className="middle-page-container">
+            <Features features={product.features} />
+            <BoxContent accessories={product.accessories} />
+          </div>
           <ProductGallery gallery={product.images.gallery} />
           <AlsoLike alsoLike={product.also_like}/>
           <CategoriesList />

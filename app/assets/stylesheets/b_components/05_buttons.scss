@@ -68,3 +68,25 @@
     }
   }
 }
+
+.select-quantity {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+  padding: 15px;
+  font-size: 13px;
+  background-color: $light;
+
+  span {
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    opacity: .25;
+  }
+}
