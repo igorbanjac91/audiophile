@@ -5,6 +5,7 @@ import Home from './components/home/Home';
 import Categories from './components/categories/Categories';
 import Product from './components/products/Product';
 import Nav from "./components/Nav";
+import Cart from "./components/Cart";
 
 document.addEventListener("DOMContentLoaded", () => {
   const index = document.getElementById("pages")
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div>
       <Router>
         <Nav />
+        <Cart />
         <div className="main-content-container">
           <Switch>
             <Route exact path="/" component={Home} />
