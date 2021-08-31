@@ -8,14 +8,13 @@
   right: 7%;
   z-index: 99;
   box-sizing: border-box;
-  // display: none;
+  display: none;
   width: 86%;
   max-width: 377px;
   height: fit-content;
   padding: 32px 28px;
   margin: 0 auto;
   background-color: $white;  
-  border: 1px solid black;
   border-radius: 8px;
 
   &__top {
