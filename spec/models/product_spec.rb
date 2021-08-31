@@ -5,7 +5,8 @@ RSpec.describe Product, type: :model do
   describe "validations" do 
 
     it { should validate_presence_of(:name) }    
-    
+    it { should validate_presence_of(:also_name) }    
+    it { should validate_presence_of(:cart_name) }    
     it { should validate_presence_of(:slug) }    
     it { should validate_presence_of(:features) }    
     it { should validate_presence_of(:description) }    
@@ -14,6 +15,8 @@ RSpec.describe Product, type: :model do
     it { should validate_numericality_of(:price) }
 
     it { should validate_length_of(:name).is_at_most(80) }
+    it { should validate_length_of(:also_name).is_at_most(15) }
+    it { should validate_length_of(:cart_name).is_at_most(10) }
     it { should validate_length_of(:slug).is_at_most(80) }
     it { should validate_length_of(:description).is_at_most(1200) }
     it { should validate_length_of(:features).is_at_most(1200) }

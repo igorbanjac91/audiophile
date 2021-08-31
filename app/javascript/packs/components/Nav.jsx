@@ -7,55 +7,88 @@ import { Link } from "react-router-dom";
 const Nav = () => {
 
   let [ menuDown, setMenuDown ] = useState(false);
+  let [ cartDown, setCartDown ] = useState(false);
   let windowSize = useWindowSize();
   let mainContent = document.querySelector(".main-content-container");
+  let body = document.querySelector("body");
   let menu = document.querySelector(".main-nav > .categories-list");
+  let cart = document.querySelector(".cart")
+  let menuLink = document.querySelector(".menu-link")
+  let cartLink = document.querySelector(".cart-link")
 
   useEffect(() => {
 
     if ( windowSize.width > 960 ) {
-      hideNavMenu();
-    }
-    
+      hideNavMenu(menu);
+    }    
   },[windowSize])
   
-  function handleClick(e) {
+
+  function handleClickMenu(e) {
     e.preventDefault();
     
-    let body = document.querySelector("body");
-    
     if (menuDown) {
-      hideNavMenu();
+      hideNavMenu(menu);
     } else {
-      showNavMenu();
+      showNavMenu(menu);
+      hideNavMenu(cart);
+      mainContent.classList.add("drop-shadow");
     }
     
     body.addEventListener("click", hideMenu);
     
     function hideMenu(event) {
-      if (event.target !=  e.target) {
-        hideNavMenu();
+      if (event.target != e.target && event.target != cartLink) {
+        hideNavMenu(menu);
       }
     }
   }
 
-  function hideNavMenu() {
+  function handleClickCart(e) {
+    e.preventDefault();
+
+    if (cartDown) {
+      hideNavMenu(cart);
+    } else {
+      showNavMenu(cart);
+      hideNavMenu(menu);
+      mainContent.classList.add("drop-shadow");
+    }
+    
+    body.addEventListener("click", hideMenu);
+    
+    function hideMenu(event) {
+      if (event.target != e.target && event.target != menuLink) {
+        hideNavMenu(cart);
+      }
+    }
+  }
+
+  function hideNavMenu(menu) {
     menu.style.display = "none";
-    setMenuDown(false)
     mainContent.classList.remove("drop-shadow");
+    if (menu == cart) {
+      setCartDown(false);
+    } else {
+      setMenuDown(false);
+    }
   }
   
-  function showNavMenu() {
+  function showNavMenu(menu) {
     menu.style.display = "block";
-    setMenuDown(true);
     mainContent.classList.add("drop-shadow");
+    if (menu == cart) {
+      setCartDown(true);
+    } else {
+      setMenuDown(true);
+    }
   }
   
   return (
     <nav className="main-nav">
       <ul>
         <li className="main-nav__menu">
-          <a onClick={handleClick} >
+          <a className="menu-link" onClick={handleClickMenu} >
             <HamburgerIcon />
           </a>
           <nav className="menu-nav">
@@ -81,7 +114,7 @@ const Nav = () => {
           </Link>
         </li>
         <li className="main-nav__cart">
-          <a href="#">
+          <a className="cart-link" onClick={handleClickCart} >
             <CartIcon />
           </a>
         </li>

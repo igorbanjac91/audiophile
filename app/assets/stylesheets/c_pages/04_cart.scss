@@ -8,12 +8,12 @@
   right: 7%;
   z-index: 99;
   box-sizing: border-box;
+  display: none;
   width: 86%;
   height: fit-content;
   padding: 32px 28px;
   margin: 0 auto;
   background-color: $white;  
-  border: 1px solid $black;
   border-radius: 8px;
 
   &__top {
@@ -39,6 +39,9 @@
     margin-bottom: 32px;
 
     .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       &__image {
         height: 64px;
@@ -50,13 +53,18 @@
       }
 
       &__info {
+        flex-grow: 1;
+        padding-left: 16px;
+        font-weight: bold;
+        line-height: 25px;
 
         h3 {
-
+          font-size: 15px;
         }
 
         span {
-
+          font-size: 14px;
+          opacity: .5;
         }
       }
     }

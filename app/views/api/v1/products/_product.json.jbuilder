@@ -1,4 +1,4 @@
-json.extract! product, :id, :name, :slug, :description, :features, :price, :new
+json.extract! product, :id, :name, :also_name, :cart_name, :slug, :description, :features, :price, :new
 json.images do 
   if product.mobile_image.attached?
     json.mobile_image_url product.mobile_image.url

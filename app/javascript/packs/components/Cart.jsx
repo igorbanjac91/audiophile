@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ButtonSelectQuantity from "./shared/ButtonSelectQauntity";
 
 const Cart = (props) => {
 
@@ -24,12 +25,14 @@ const Cart = (props) => {
 
   return (
     <div className="cart-container">
-      { order && <div className="cart" >
-        <TopCart order={order} />
-        <CartListItems order={order}/>
-        <Total />
-        <CheckoutButton />
-      </div> }
+      <div className="cart" >
+        { order && <div>
+          <TopCart order={order} />
+          <CartListItems order={order}/>
+          <Total />
+          <CheckoutButton />
+        </div> }
+      </div>
     </div>
   )
 }
@@ -71,9 +74,10 @@ const CartListItem  = (props) => {
     <li className="cart-item">
       <div className="cart-item__image" style={{ backgroundImage: `url(${product.cart_image})`}}></div>
       <div className="cart-item__info">
-        <h3>{product.name}</h3>
+        <h3>{product.cart_name}</h3>
         <span>$ {subTotal}</span>
       </div>
+      <ButtonSelectQuantity quantity={props.quantity} />
     </li>
   ) 
 }

@@ -269,7 +269,7 @@ const AlsoLikeListItem = (props) => {
     <li className="also-like-list__item">
       <div className="also-like-image" style={{ backgroundImage: `url(${imageUrl})`}}></div>
       <div className="info-container">
-        <h4>{item.name}</h4>
+        <h4>{item.also_name}</h4>
         <ButtonSeeProduct />
       </div>
     </li>
