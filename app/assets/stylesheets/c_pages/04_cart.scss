@@ -1,0 +1,54 @@
+.cart-container {
+  position: relative;
+}
+
+.cart {
+  position: absolute;
+  top: 24px;
+  right: 7%;
+  z-index: 99;
+  width: 86%;
+  height: 488px;
+  margin: 0 auto;
+  background-color: $white;  
+
+  &__top {
+
+    h2 {
+
+    }
+
+    a {
+
+    }
+  }
+
+  &__itmes {
+
+    .cart-item {
+
+      &__image {
+
+      }
+
+      &__info {
+
+        h3 {
+
+        }
+
+        span {
+
+        }
+      }
+    }
+  }
+
+  &__total {
+
+  }
+
+  .checkout-btn {
+
+  }
+}
