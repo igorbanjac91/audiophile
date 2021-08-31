@@ -1,7 +1,9 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Cart = (props) => {
+
+  const [ order, setOrder ] = useState();
 
   useEffect(() => {
     getOrder();
@@ -11,7 +13,9 @@ const Cart = (props) => {
     axios
       .get(`/api/v1/orders/${props.orderId}`)
       .then( response => {
-        console.log(response);
+        let fetchedOrder = response.data;
+        console.log(fetchedOrder)
+        setOrder(fetchedOrder);
       }).catch( e => {
         console.log(e);
       })
@@ -20,45 +24,55 @@ const Cart = (props) => {
 
   return (
     <div className="cart-container">
-      <div className="cart" >
-        <TopCart />
-        <CartListItems />
+      { order && <div className="cart" >
+        <TopCart order={order} />
+        <CartListItems order={order}/>
         <Total />
         <CheckoutButton />
-      </div>
+      </div> }
     </div>
   )
 }
 
-const TopCart = () => {
+const TopCart = (props) => {
   
+  let itemsNumber = props.order.line_items.length;
+
   return (
-    <div className="cart_top">
-      <h2>CART (3)</h2>
+    <div className="cart__top">
+      <h2>CART ({itemsNumber})</h2>
       <a>Remove all</a>
     </div>
   )
 }
 
-const CartListItems = () => {
+const CartListItems = (props) => {
+
+  let items = props.order.line_items.map( (lineItem) => {
+    let product = lineItem.product
+    return <CartListItem key={product.id} product={product} quantity={lineItem.quantity} />
+  })
 
   return (
-    <div className="cart_items">
+    <div className="cart__items">
       <ul>
-
+        {items}
       </ul>
     </div>
   )
 }
 
-const CartListItem  = () => {
+const CartListItem  = (props) => {
+
+  let product = props.product
+  let subTotal = Number(product.price) * Number(props.quantity);
 
   return (
     <li className="cart-item">
-      <div className="cart-item__image"></div>
+      <div className="cart-item__image" style={{ backgroundImage: `url(${product.cart_image})`}}></div>
       <div className="cart-item__info">
-        <h3>XX99 MK II</h3>
-        <span>$ 2,999</span>
+        <h3>{product.name}</h3>
+        <span>$ {subTotal}</span>
       </div>
     </li>
   ) 

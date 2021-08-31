@@ -1,5 +1,6 @@
 .btn-see-product,
-.btn-add-to-cart {
+.btn-add-to-cart,
+.checkout-btn {
   display: inline-block;
   padding: 15px 30px;
   font-family: 'Manrope', sans-serif;
@@ -19,6 +20,10 @@
 
 .btn-add-to-cart {
   width: 160px;
+}
+
+.checkout-btn {
+  width: 100%;
 }
 
 .btn-shop {

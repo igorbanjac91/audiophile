@@ -5,6 +5,7 @@ import ProductInfo from "./ProductInfo";
 import { useWindowSize, setImage } from "../utils";
 import ButtonSeeProduct from "../shared/ButtonSeeProduct";
 import CategoriesList from "../shared/CategoriesList";
+import ButtonSelectQuantity from "../shared/ButtonSelectQauntity";
 import setAxiosHeaders from "../AxiosHeaders";
 
 const Product = (props) => {
@@ -118,28 +119,11 @@ const TopPage = (props) => {
       <div className="product-main-content">
         <ProductInfo item={product} showPrice={true} />
         <div className="product-action">
-          <ProductSelectQuantity product={product} handleChangeQuantity={handleChangeQuantity} quantity={props.quantity}/>
+          <ButtonSelectQuantity product={product} handleChangeQuantity={handleChangeQuantity} quantity={props.quantity}/>
           <AddToCartButon handleAddToCart={handleAddToCart} />
         </div>
       </div>
     </section>   
-  )
-}
-
-const ProductSelectQuantity = (props) => {
-
-  let quantity = props.quantity;
-
-  function handleChangeQuantity(e) {
-    props.handleChangeQuantity(e);
-  }
-
-  return (
-    <div className="select-quantity">
-      <button onClick={handleChangeQuantity}>-</button>
-      <span>{quantity}</span>
-      <button onClick={handleChangeQuantity}>+</button>
-    </div>
   )
 }
 
