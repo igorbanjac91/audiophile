@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   match '/products/:name', to: "pages#index", via: :all
   match '/categories', to: "pages#index", via: :all
   match '/products', to: "pages#index", via: :all
+  match '/checkout', to: "pages#index", via: :all
   match '/', to: "pages#index", via: :all
 end

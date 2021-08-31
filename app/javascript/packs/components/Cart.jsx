@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ButtonSelectQuantity from "./shared/ButtonSelectQauntity";
+import { Link } from "react-router-dom";
 
 const Cart = (props) => {
 
@@ -95,7 +96,7 @@ const Total = () => {
 const CheckoutButton = () => {
 
   return (
-    <button className="checkout-btn">CHECKOUT</button>
+    <Link className="checkout-btn" to="/checkout">CHECKOUT</Link>
   )
 }
 

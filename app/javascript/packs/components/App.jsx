@@ -5,6 +5,7 @@ import Categories from './categories/Categories';
 import Product from './products/Product';
 import Nav from "./Nav";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 
 const App = () => {
 
@@ -30,6 +31,9 @@ const App = () => {
             </Route>
             <Route exact path="/products/:name">
               <Product handleSetOrderId={handleSetOrderId} />
+            </Route>
+            <Route exact path="/checkout" orderId={orderId} >
+              <Checkout />
             </Route>
           </Switch>
         </div>
