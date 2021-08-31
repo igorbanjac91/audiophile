@@ -19,7 +19,9 @@ const Nav = () => {
   useEffect(() => {
 
     if ( windowSize.width > 960 ) {
-      hideNavMenu(menu);
+      if (menuDown) {
+        hideNavMenu(menu);
+      }
     }    
   },[windowSize])
   
