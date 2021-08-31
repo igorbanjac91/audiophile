@@ -12,6 +12,8 @@ class Api::V1::ProductsController < ApplicationController
   
   def show
     @product = Product.find_by(slug: params[:id])
-    @also_like = Product.where.not(name: "YX1 Wireless Earphones").limit(3)
+    @also_like = Product.where.not(id: @product.id)
+                        .where.not(name: "YX1 Wireless Earphones")
+                        .limit(3)
   end
 end
