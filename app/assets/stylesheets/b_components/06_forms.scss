@@ -1,0 +1,86 @@
+.checkout__form {
+  padding: 24px;
+  
+  form {
+
+    .field {
+      margin-bottom: 32px;
+
+      h4 {
+        margin-bottom: 16px;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 25px;
+        color: $primary;
+        letter-spacing: 1px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"] {
+        box-sizing: border-box;
+        width: 100%;
+        height: 56px;
+        margin-bottom: 24px;
+        text-indent: 24px;
+        border: 1px solid $grey-light;
+        border-radius: 8px;
+      }
+
+      .radio-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 56px;
+        padding-left: 16px;
+        margin-bottom: 16px;
+        border: 1px solid $grey-light;
+        border-radius: 8px;
+      }
+
+      .radio-label {
+        display: inline-block;
+        padding-left: 16px;
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+
+      label[for='payment'] {
+        margin-bottom: 16px;
+      }
+
+      label[for="e-money-number"] {
+        margin-top: 32px;
+      }
+
+      input[type="radio"] {
+        position: relative;
+        display: inline;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        color: $primary;
+      }
+
+      input[type="radio"]:checked::after {
+        position: absolute;
+        top:  5px;
+        left: 5px;
+        width: 10px;
+        height: 10px;
+        content: "";
+        background-color: $primary;
+        border-radius: 10px;
+        box-shadow:
+          inset 0 0 0 10px $primary, 0 0 0 4px $white, 0 0 0 5px $grey-light;
+      }
+    }
+  }
+}

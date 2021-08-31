@@ -12,3 +12,5 @@ import "./index"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+

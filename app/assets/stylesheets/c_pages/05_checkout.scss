@@ -1,0 +1,35 @@
+.checkout-container {
+  background-color: $super-light;
+
+  .go-back-link {
+    display: inline-block;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    margin-left: 7%;
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 25px;
+    opacity: .5;
+  }
+}
+
+.checkout {
+  width: 86%;
+  margin: 0 auto;
+  background-color: $white;
+  
+
+  &__form {
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__summary {
+
+  }
+}

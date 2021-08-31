@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Checkout = () => {
 
   return (      
-    <div className="checkout">
-      <a>Go Back</a>
-      <CheckoutForm />
-      <CheckoutSummary />
+    <div className="checkout-container">
+      <a className="go-back-link">Go Back</a>
+      <div className="checkout">
+        <CheckoutForm />
+        <CheckoutSummary />
+      </div>
     </div>
   )
 }
@@ -39,13 +41,17 @@ const CheckoutForm = () => {
         <div className="field">
           <h4>PAYMENT DETAILS</h4>
           <label htmlFor="payment">Payment Method</label>
-          <select name="payment" id="payment">
-            <option value="e-money">e-Money</option>
-            <option value="cash">Cash on Delivery</option>
-          </select>
-          <label htmlFor="e-money-nubmer"></label>
+          <div className="radio-container">
+            <input type="radio" id="e-money" value="e-money" name="payment" checked={true} />
+            <label className="radio-label" htmlFor="e-money">e-Money</label>
+          </div>
+          <div className="radio-container">
+            <input type="radio" id="cash" value="cash" name="payment" />
+            <label className="radio-label" htmlFor="cash">e-Money</label>
+          </div>
+          <label htmlFor="e-money-number">e-Money Number</label>
           <input type="text" id="e-money-number" />
-          <label htmlFor="pin"></label>
+          <label htmlFor="pin">e-Money PIN</label>
           <input type="text" id="pin" />
         </div>
       </form>
@@ -88,29 +94,33 @@ const SummaryItem = () => {
 }
 
 const SummaryAmount = () => {
-  <div className="amount">
-    <div className="amount__total">
-      <span>TOTAL</span>
-      <span>$ 5242</span>
+  return (
+    <div className="amount">
+      <div className="amount__total">
+        <span>TOTAL</span>
+        <span>$ 5242</span>
+      </div>
+      <div className="amount__shipping">
+        <span>SHIPPING</span>
+        <span>$ 50</span>
+      </div>
+      <div className="amount__vat">
+        <span>VAT (INCLUDED)</span>
+        <span>$ 1034</span>
+      </div>
+      <div className="amount__grand-total">
+        <span>GRAND TOTAL</span>
+        <span>$ 6293</span>
+      </div>
     </div>
-    <div className="amount__shipping">
-      <span>SHIPPING</span>
-      <span>$ 50</span>
-    </div>
-    <div className="amount__vat">
-      <span>VAT (INCLUDED)</span>
-      <span>$ 1034</span>
-    </div>
-    <div className="amount__grand-total">
-      <span>GRAND TOTAL</span>
-      <span>$ 6293</span>
-    </div>
-  </div>
+  )
 }
 
 
 const PayButton = () => {
-  <button>CONTINUE & PAY</button>
+  return (
+    <button>CONTINUE & PAY</button>
+  )
 }
 
 export default Checkout;
