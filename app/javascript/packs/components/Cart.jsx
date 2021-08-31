@@ -5,7 +5,7 @@ const Cart = (props) => {
 
   useEffect(() => {
     getOrder();
-  }, [])
+  }, [props.orderId])
  
   function getOrder() {
     axios

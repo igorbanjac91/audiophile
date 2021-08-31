@@ -8,17 +8,11 @@ import Cart from "./Cart";
 
 const App = () => {
 
-  const [ orderId, setOrderId ] = useState(null);
-
-  useEffect(() => {
-
-  }, [])
-
-
+  const [ orderId, setOrderId ] = useState(window.sessionStorage.getItem("orderId"));
+  
   function handleSetOrderId(id) {
-    console.log(id)
-    setOrderId(id)
-    window.sessionStorage.setItem("orderId", id)
+    setOrderId(id);
+    window.sessionStorage.setItem("orderId", id);
   }
 
   return (
