@@ -21,7 +21,6 @@ const Product = (props) => {
     axios
     .get(`/api/v1/products/${param.name}`)
     .then( response => {
-      console.log(response.data)
       let fetchedProduct = response.data
       setProduct(fetchedProduct);
     }).catch( e => {
@@ -64,6 +63,8 @@ const Product = (props) => {
       .post("/api/v1/line_items", formData)
       .then( response => {
         console.log(response)
+        let orderId = response.data.order_id;
+        props.handleSetOrderId(orderId);
       }).catch((e) => {
         console.log(e)
       })

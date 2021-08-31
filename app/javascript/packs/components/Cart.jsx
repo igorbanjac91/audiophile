@@ -1,14 +1,21 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 
-const Cart = () => {
+const Cart = (props) => {
 
-  console.log(window.sessionStorage.getItem("order_id"))
-
-  // function getOrder() {
-  //   axios
-  //     .get("/api/v1/orders")
-  // }
+  useEffect(() => {
+    getOrder();
+  }, [])
+ 
+  function getOrder() {
+    axios
+      .get(`/api/v1/orders/${props.orderId}`)
+      .then( response => {
+        console.log(response);
+      }).catch( e => {
+        console.log(e);
+      })
+  }
 
 
   return (
