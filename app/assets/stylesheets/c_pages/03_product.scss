@@ -8,9 +8,13 @@
     margin-top: 24px;
     margin-bottom: 24px;
     font-size: 15px;
-    font-weight: 200;
     cursor: pointer;
     opacity: .8;
+  }
+
+  &__go-back-link:hover {
+    color: $primary;
+    opacity: 1;
   }
 
   &__top-page {
@@ -58,8 +62,7 @@
           font-size: 15px;
           font-weight: 200;
           line-height: 25px;
-          opacity: .5;
-          
+          opacity: .6;
         }
         
         &__price {
@@ -90,7 +93,7 @@
       font-size: 15px;
       font-weight: 200;
       line-height: 25px;
-      opacity: .5;
+      opacity: .6;
     }
   }
 

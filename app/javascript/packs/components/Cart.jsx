@@ -95,7 +95,7 @@ const Total = () => {
 const CheckoutButton = () => {
 
   return (
-    <Link className="checkout-btn" to="/checkout">CHECKOUT</Link>
+    <Link className="btn-checkout" to="/checkout">CHECKOUT</Link>
   )
 }
 

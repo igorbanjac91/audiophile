@@ -142,11 +142,27 @@
   /*-----------------FOOTER-----------------------------------*/
 
   .footer {
+    position: static;
     box-sizing: border-box;
     text-align: left;
     padding-bottom: 48px;
     padding-left: 40px;
     padding-right: 40px;
+
+    &__content-container {
+      position: relative;
+    }
+
+    &__content-container::before {
+      position: absolute;
+      content: " ";
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background-color: $primary;
+      transform: translateY(-38px);
+    }
 
     &__site-nav {
       margin-bottom: 32px;
@@ -175,7 +191,7 @@
   }
 
   .footer::before {
-    left: 90px;
+    display: none;
   }
 
   /*-----------------CATEGORIE'S PRODUCTS-----------------------------------*/

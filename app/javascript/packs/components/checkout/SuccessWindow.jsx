@@ -115,7 +115,7 @@ const BackHomeButton = () => {
   }
 
   return (
-    <Link className="back-to-home-btn" onClick={handleClick} to="/" >BACK TO HOME</Link>
+    <Link className="btn-back-to-home" onClick={handleClick} to="/" >BACK TO HOME</Link>
   )
 }
 

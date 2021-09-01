@@ -217,6 +217,10 @@
       margin: 0 auto;
     }
 
+    &__content-container::before {
+      transform: translateY(-51px)
+    }
+
     .top-footer {
       display: flex;
       justify-content: space-between;

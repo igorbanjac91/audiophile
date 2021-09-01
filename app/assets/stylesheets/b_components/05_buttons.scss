@@ -1,8 +1,8 @@
 .btn-see-product,
 .btn-add-to-cart,
-.checkout-btn,
-.pay-btn,
-.back-to-home-btn {
+.btn-checkout,
+.btn-pay,
+.btn-back-to-home {
   display: inline-block;
   padding: 15px 30px;
   font-family: 'Manrope', sans-serif;
@@ -16,7 +16,9 @@
   transition: background-color 100ms ease-in;
 }
 
-.btn-see-product:hover {
+.btn-see-product:hover,
+.btn-add-to-cart:hover,
+.btn-checkout:hover {
   background-color: $primary-light;
 }
 
@@ -25,9 +27,9 @@
   width: 160px;
 }
 
-.checkout-btn,
-.pay-btn,
-.back-to-home-btn {
+.btn-checkout,
+.btn-pay,
+.btn-back-to-home {
   box-sizing: border-box;
   width: 100%;
   text-align: center;
@@ -88,7 +90,7 @@
   width: 120px;
   padding: 15px;
   font-size: 13px;
-  background-color: $light;
+  background-color: $grey-90;
 
   span {
     font-weight: 700;
@@ -99,7 +101,12 @@
     background-color: transparent;
     cursor: pointer;
     border: none;
-    opacity: .25;
+    opacity: .5;
+  }
+
+  button:hover {
+    color: $primary;
+    opacity: 1;
   }
 
 }

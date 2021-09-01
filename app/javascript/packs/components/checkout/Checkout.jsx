@@ -187,7 +187,7 @@ const PayButton = () => {
   }
 
   return (
-    <button className="pay-btn" onClick={handleClick}>CONTINUE & PAY</button>
+    <button className="btn-pay" onClick={handleClick}>CONTINUE & PAY</button>
   )
 }
 
