@@ -36,7 +36,7 @@ const ListItems = (props) => {
 
   function handleClick(e) {
     e.preventDefault();
-    
+
     if (showItems) {
       e.target.textContent = "View all";
       setShowItems(false);
@@ -105,8 +105,17 @@ const GrandTotal = () => {
 }
 
 const BackHomeButton = () => {
+
+  function handleClick() {
+    let successWindow = document.querySelector(".success-window-container");
+    let body = document.querySelector("body");
+
+    successWindow.style.display = "none";
+    body.classList.remove("drop-shadow");
+  }
+
   return (
-    <Link className="back-to-home-btn" to="/" >BACK TO HOME</Link>
+    <Link className="back-to-home-btn" onClick={handleClick} to="/" >BACK TO HOME</Link>
   )
 }
 

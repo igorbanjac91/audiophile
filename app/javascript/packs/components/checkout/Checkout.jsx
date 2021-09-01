@@ -177,8 +177,17 @@ const SummaryAmount = () => {
 
 
 const PayButton = () => {
+
+  function handleClick(e) {
+    let successWindow = document.querySelector(".success-window-container");
+    let body = document.querySelector("body");
+
+    successWindow.style.display = "block";
+    body.classList.add("drop-shadow");
+  }
+
   return (
-    <button className="pay-btn">CONTINUE & PAY</button>
+    <button className="pay-btn" onClick={handleClick}>CONTINUE & PAY</button>
   )
 }
 
