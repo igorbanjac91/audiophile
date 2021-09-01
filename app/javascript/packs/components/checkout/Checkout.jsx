@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SuccessWindow from "./SuccessWindow";
 
 const Checkout = (props) => {
 
   const [ order, setOrder ] = useState();
+  const [ success, setSuccess ] = useState(true);
 
   let aboutSection = document.querySelector(".about");
   aboutSection.style.display = "none";    
@@ -31,6 +33,7 @@ const Checkout = (props) => {
         <CheckoutForm />
         <CheckoutSummary items={order.line_items} />
       </div> }
+      { success && <SuccessWindow order={order} /> }
     </div>
   )
 }

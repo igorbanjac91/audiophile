@@ -348,6 +348,7 @@
         .payment-field {
           flex: 0 1 100%;
           display: flex;
+          justify-content: space-between;
 
           > label {
             flex: 0 1 49%;

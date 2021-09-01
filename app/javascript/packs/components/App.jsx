@@ -5,7 +5,7 @@ import Categories from './categories/Categories';
 import Product from './products/Product';
 import Nav from "./Nav";
 import Cart from "./Cart";
-import Checkout from "./Checkout";
+import Checkout from "./checkout/Checkout";
 
 const App = () => {
 
