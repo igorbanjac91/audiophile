@@ -1,7 +1,8 @@
 .btn-see-product,
 .btn-add-to-cart,
 .checkout-btn,
-.pay-btn {
+.pay-btn,
+.back-to-home-btn {
   display: inline-block;
   padding: 15px 30px;
   font-family: 'Manrope', sans-serif;
@@ -25,7 +26,8 @@
 }
 
 .checkout-btn,
-.pay-btn {
+.pay-btn,
+.back-to-home-btn {
   box-sizing: border-box;
   width: 100%;
   text-align: center;

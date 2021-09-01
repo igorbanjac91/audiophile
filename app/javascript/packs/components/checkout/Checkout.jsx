@@ -19,7 +19,6 @@ const Checkout = (props) => {
       .get(`/api/v1/orders/${props.orderId}`)
       .then( response => {
         let fetchedOrder = response.data;
-        console.log(fetchedOrder)
         setOrder(fetchedOrder);
       }).catch( e => {
         console.log(e);
@@ -32,8 +31,8 @@ const Checkout = (props) => {
       { order && <div className="checkout">
         <CheckoutForm />
         <CheckoutSummary items={order.line_items} />
+        { success && <SuccessWindow order={order} /> }
       </div> }
-      { success && <SuccessWindow order={order} /> }
     </div>
   )
 }

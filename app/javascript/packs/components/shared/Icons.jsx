@@ -43,4 +43,12 @@ const ArrowRightIcon = () => {
   )
 }
 
-export { Logo, HamburgerIcon, CartIcon, ArrowRightIcon };
+const CheckmarkIcon = () => {
+  return (
+    <svg className="checkmark-icon" width={26} height={21} viewBox="0 0 26 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.754 11.333l6.751 6.751L24.308 2.281" stroke="#fff" strokeWidth={4} />
+    </svg>
+  )
+}
+
+export { Logo, HamburgerIcon, CartIcon, ArrowRightIcon, CheckmarkIcon };
