@@ -365,4 +365,30 @@
       }
     }
   }
+
+  /*-----------------SUCCESS WINDOW-----------------------------------*/
+
+  .success-window-container {
+
+    .success-window {
+  
+      &__order-info {
+        flex-direction: row;
+
+        .list-line-items {
+          flex: 0 1 55%;
+          border-top-right-radius: 0;
+          border-bottom-left-radius: 8px;
+        }
+
+        .grand-total {
+          flex: 0 1 45%;
+          justify-content: flex-end;
+          padding-bottom: 42px;
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 8px;
+        }
+      }
+    }
+  }
 }

@@ -37,16 +37,16 @@ const ListItems = (props) => {
   function handleClick(e) {
     e.preventDefault();
 
-    if (showItems) {
-      e.target.textContent = "View all";
-      setShowItems(false);
+    if (!showItems) {
+      e.target.textContent = "View less";
+      setShowItems(true);
     } else {
       if (itemsNumber == 2 ) {
         e.target.textContent = `and 1 another item`;
       } else {
         e.target.textContent = `and ${itemsNumber} another items`;
       }
-      setShowItems(true)
+      setShowItems(false)
     }
   }
 
@@ -62,7 +62,7 @@ const ListItems = (props) => {
     )
   } else {
     return (
-      <div className="list-line-itmes">
+      <div className="list-line-items">
         <ul>
           {firstItem}
           { showItems && <div className="other-items">
