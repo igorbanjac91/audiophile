@@ -371,4 +371,23 @@
       }
     }
   }
+
+  /*-----------------CHECKOUT -----------------------------------*/
+
+  .checkout {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__form {
+      flex: 0 1 65%;
+    }
+
+    &__summary {
+      flex: 0 1 33%;
+      height: fit-content;
+      margin-left: 30px;
+    }
+  }
 }

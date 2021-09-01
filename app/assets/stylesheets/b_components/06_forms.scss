@@ -3,7 +3,9 @@
   
   form {
     
-    .field {
+    .form-section {
+      display: flex;
+      flex-direction: column;
       margin-bottom: 32px;
       
       h4 {
@@ -69,6 +71,19 @@
         color: $primary;
       }
 
+      input[type="radio"]::after {
+        position: absolute;
+        top:  5px;
+        left: 5px;
+        width: 10px;
+        height: 10px;
+        content: "";
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow:
+          inset 0 0 0 10px $white, 0 0 0 5px $white, 0 0 0 6px $grey-light;
+      }
+
       input[type="radio"]:checked::after {
         position: absolute;
         top:  5px;
@@ -79,15 +94,18 @@
         background-color: $primary;
         border-radius: 10px;
         box-shadow:
-          inset 0 0 0 10px $primary, 0 0 0 4px $white, 0 0 0 5px $grey-light;
+          inset 0 0 0 10px $primary, 0 0 0 5px $white, 0 0 0 6px $grey-light;
       }
     }
 
     div:last-child {
       margin-bottom: 0px;
 
-      input:last-child {
-        margin-bottom: 0px;
+      div:last-child {
+
+        input:last-child {
+          margin-bottom: 0px;
+        }
       }
     }
   }

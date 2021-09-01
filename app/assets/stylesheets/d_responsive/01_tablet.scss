@@ -321,4 +321,47 @@
       }
     }
   }
+
+  /*-----------------CHECKOUT -----------------------------------*/
+
+  .checkout__form {
+
+    form {
+  
+      .form-section {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+  
+        h4 {
+          flex: 0 1 100%;
+        }
+
+        .field {
+          flex: 0 1 49%;
+        }
+
+        .address-field {
+          flex: 0 1 100%;
+        }
+
+        .payment-field {
+          flex: 0 1 100%;
+          display: flex;
+
+          > label {
+            flex: 0 1 49%;
+          }
+
+          .radio-options {
+            flex: 0 1 49%;
+          }
+        }
+
+        label[for="e-money-number"] {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
 }

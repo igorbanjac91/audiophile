@@ -40,41 +40,63 @@ const CheckoutForm = () => {
     <div className="checkout__form">
       <h2>CHECKOUT</h2>
       <form>
-        <div className="field">
+        <div className="form-section">
           <h4>BILLING DETAILS</h4>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
-          <label htmlFor="email">Email Address</label>
-          <input type="email" id="email" />
-          <label htmlFor="phone">Phone Number</label>
-          <input type="tel" id="phone" />
+          <div className="field">
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" />
+          </div>
+          <div className="field">
+            <label htmlFor="email">Email Address</label>
+            <input type="email" id="email" />
+          </div>
+          <div className="field">
+            <label htmlFor="phone">Phone Number</label>
+            <input type="tel" id="phone" />
+          </div>
         </div>
-        <div className="field">
+        <div className="form-section">
           <h4>SHIPPING INFO</h4>
-          <label htmlFor="address">Your Address</label>
-          <input type="text" id="address" />
-          <label htmlFor="zip">ZIP Code</label>
-          <input type="text" id="zip" />
-          <label htmlFor="city">City</label>
-          <input type="text" id="city" />
-          <label htmlFor="country">Country</label>
-          <input type="text" id="country" />
+          <div className="field address-field">
+            <label htmlFor="address">Your Address</label>
+            <input type="text" id="address" />
+          </div>
+          <div className="field">
+            <label htmlFor="zip">ZIP Code</label>
+            <input type="text" id="zip" />
+          </div>
+          <div className="field">
+            <label htmlFor="city">City</label>
+            <input type="text" id="city" />
+          </div>
+          <div className="field">
+            <label htmlFor="country">Country</label>
+            <input type="text" id="country" />
+          </div>
         </div>
-        <div className="field">
+        <div className="form-section">
           <h4>PAYMENT DETAILS</h4>
-          <label htmlFor="payment">Payment Method</label>
-          <div className="radio-container">
-            <input type="radio" id="e-money" value="e-money" name="payment" />
-            <label className="radio-label" htmlFor="e-money">e-Money</label>
+          <div className="field payment-field">
+            <label htmlFor="payment">Payment Method</label>
+            <div className="radio-options">
+              <div className="radio-container">
+                <input type="radio" id="e-money" value="e-money" name="payment" />
+                <label className="radio-label" htmlFor="e-money">e-Money</label>
+              </div>
+              <div className="radio-container">
+                <input type="radio" id="cash" value="cash" name="payment" />
+                <label className="radio-label" htmlFor="cash">Cash on Delivery</label>
+              </div>
+            </div>
           </div>
-          <div className="radio-container">
-            <input type="radio" id="cash" value="cash" name="payment" />
-            <label className="radio-label" htmlFor="cash">e-Money</label>
+          <div className="field">
+            <label htmlFor="e-money-number">e-Money Number</label>
+            <input type="text" id="e-money-number" />
           </div>
-          <label htmlFor="e-money-number">e-Money Number</label>
-          <input type="text" id="e-money-number" />
-          <label htmlFor="pin">e-Money PIN</label>
-          <input type="text" id="pin" />
+          <div className="field">
+            <label htmlFor="pin">e-Money PIN</label>
+            <input type="text" id="pin" />
+          </div>
         </div>
       </form>
     </div>
