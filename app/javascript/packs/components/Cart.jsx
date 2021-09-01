@@ -16,7 +16,6 @@ const Cart = (props) => {
       .get(`/api/v1/orders/${props.orderId}`)
       .then( response => {
         let fetchedOrder = response.data;
-        console.log(fetchedOrder)
         setOrder(fetchedOrder);
       }).catch( e => {
         console.log(e);

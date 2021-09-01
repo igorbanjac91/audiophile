@@ -1,6 +1,7 @@
 .btn-see-product,
 .btn-add-to-cart,
-.checkout-btn {
+.checkout-btn,
+.pay-btn {
   display: inline-block;
   padding: 15px 30px;
   font-family: 'Manrope', sans-serif;
@@ -23,7 +24,8 @@
   width: 160px;
 }
 
-.checkout-btn {
+.checkout-btn,
+.pay-btn {
   box-sizing: border-box;
   width: 100%;
   text-align: center;

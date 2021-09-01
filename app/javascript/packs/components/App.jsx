@@ -32,8 +32,8 @@ const App = () => {
             <Route exact path="/products/:name">
               <Product handleSetOrderId={handleSetOrderId} />
             </Route>
-            <Route exact path="/checkout" orderId={orderId} >
-              <Checkout />
+            <Route exact path="/checkout">
+              <Checkout orderId={orderId} />
             </Route>
           </Switch>
         </div>
