@@ -7,6 +7,15 @@ Capybara.register_driver :chrome_headless do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
 end
 
+Capybara.register_driver :chrome_headless_mobile do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    'goog:chromeOptions': {
+      args: %w[ no-sandbox headless disable-gpu --window-size=360,640]
+    }
+  )
+  Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+end
+
 %x(mkdir -p tmp/selenium_logs)
 
 Capybara.register_driver :chrome do |app|

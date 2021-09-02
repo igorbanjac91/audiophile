@@ -111,7 +111,7 @@ const Nav = () => {
           </nav>
         </li>
         <li className="main-nav__logo">
-          <Link to="/">
+          <Link className="logo" to="/">
             <Logo />
           </Link>
         </li>

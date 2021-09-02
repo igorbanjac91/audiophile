@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
-  match '/categories/:name', to: "pages#index", via: :all
-  match '/products/:name', to: "pages#index", via: :all
+  match '/categories/:name', to: "pages#index", via: :all, as: :categories
+  match '/products/:name', to: "pages#index", via: :all, as: :products
   match '/categories', to: "pages#index", via: :all
   match '/products', to: "pages#index", via: :all
   match '/checkout', to: "pages#index", via: :all

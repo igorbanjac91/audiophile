@@ -7,32 +7,37 @@ import ProductInfo from "../products/ProductInfo";
 let mainItem = {
   name: "XX99R MARK II HEADPHONES",
   new: true,
+  slug: "xx99-mark-two-headphones",
   description: "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
 }
 
 let firstItem = {
   name: "ZX9 SPEAKER",
+  slug: "zx9-speaker",
   new: false,
   description: "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
 }
 
 let secondItem = {
   name: "ZX7 SPEAKER",
+  slug: "zx7-speaker",
   new: false,
   description: "",
 }
 
 let thirdItem = {
   name: "YX1 EARPHONES",
+  slug: "yx1-earphones",
   new: false,
   description: "",
 }
+
 
 const Home = () => {
 
   return (
     <main className="home">
-      <MainProduct />
+      <MainProduct item={mainItem} />
       <CategoriesList />
       <TopProductsList />
     </main>
@@ -56,7 +61,7 @@ const MainProduct = () => {
     >
       <div className="main-product__content">
         <ProductInfo item={mainItem}/>
-        <ButtonSeeProduct />
+        <ButtonSeeProduct slug={mainItem.slug}/>
       </div>
     </header>
   )
@@ -90,7 +95,7 @@ const FirstProductListItem = () => {
       <img src={imageUrl} alt="speaker" />
       <div>
         <ProductInfo item={firstItem}/>
-        <ButtonSeeProduct />
+        <ButtonSeeProduct slug={firstItem.slug}/>
       </div>  
     </li>
   )
@@ -103,7 +108,7 @@ const SecondProductListItem = () => {
     <li className="top-products-list__second-item">
       <div>
         <ProductInfo item={secondItem}/>
-        <ButtonSeeProduct />
+        <ButtonSeeProduct slug={secondItem.slug}/>
       </div>
     </li>
   )
@@ -118,7 +123,7 @@ const ThirdProductListItem = () => {
       <div className="info-container">
         <div>
           <ProductInfo item={thirdItem} />
-          <ButtonSeeProduct />
+          <ButtonSeeProduct slug={thirdItem.slug}/>
         </div>
       </div>
     </li>
