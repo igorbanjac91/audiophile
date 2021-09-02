@@ -6,9 +6,12 @@ import { Link } from "react-router-dom";
 const Cart = (props) => {
 
   const [ order, setOrder ] = useState();
+  const [ empty, setEmpty ] = useState();
 
   useEffect(() => {
-    getOrder();
+    if (props.orderId) {
+      getOrder();
+    }
   }, [props.orderId])
  
   function getOrder() {
@@ -26,8 +29,14 @@ const Cart = (props) => {
   return (
     <div className="cart-container">
       <div className="cart" >
+        <div className="empty">
+          <TopCart itemsNumber={0}/>
+          <p className="empty__message">Your Cart is Empty</p>
+          <Link to="/">Back to Shop</Link>
+          <Total />
+        </div>
         { order && <div>
-          <TopCart order={order} />
+          <TopCart itemsNumber={order.line_items.length} />
           <CartListItems order={order}/>
           <Total />
           <CheckoutButton />
@@ -38,13 +47,11 @@ const Cart = (props) => {
 }
 
 const TopCart = (props) => {
-  
-  let itemsNumber = props.order.line_items.length;
 
   return (
     <div className="cart__top">
-      <h2>CART ({itemsNumber})</h2>
-      <a>Remove all</a>
+      <h2>CART ({props.itemsNumber})</h2>
+      { props.itemsNumber > 0 && <a>Remove all</a> }
     </div>
   )
 }
@@ -82,12 +89,12 @@ const CartListItem  = (props) => {
   ) 
 }
 
-const Total = () => {
+const Total = (props) => {
 
   return (
     <div className="cart__total">
       <span>TOTAL</span>
-      <span>$ 5,322</span>
+      <span>$ 0</span>
     </div>
   )
 }
