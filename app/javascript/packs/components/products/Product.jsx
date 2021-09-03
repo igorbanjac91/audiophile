@@ -251,7 +251,7 @@ const AlsoLikeList = (props) => {
   })
 
   return (
-    <ul className="also-like-blist">
+    <ul className="also-like-list">
       {listItems}
     </ul>
   )
