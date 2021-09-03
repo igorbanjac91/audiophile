@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Cart = (props) => {
 
   const [ order, setOrder ] = useState();
-  const [ empty, setEmpty ] = useState();
+  const [ empty, setEmpty ] = useState(true);
 
   useEffect(() => {
     if (props.orderId) {
@@ -20,22 +20,26 @@ const Cart = (props) => {
       .then( response => {
         let fetchedOrder = response.data;
         setOrder(fetchedOrder);
+        setEmpty(false)
       }).catch( e => {
         console.log(e);
       })
   }
 
+  function handleRemoveAll(e) {
+    e.preventDefault()
+  }
 
   return (
     <div className="cart-container">
       <div className="cart" >
-        <div className="empty">
-          <TopCart itemsNumber={0}/>
+        { empty &&<div className="empty">
+          <TopCart itemsNumber={0} handleRemoveAll={handleRemoveAll}/>
           <p className="empty__message">Your Cart is Empty</p>
           <Link to="/">Back to Shop</Link>
           <Total />
-        </div>
-        { order && <div>
+        </div> }
+        { order && <div className="full-cart">
           <TopCart itemsNumber={order.line_items.length} />
           <CartListItems order={order}/>
           <Total />
@@ -48,10 +52,14 @@ const Cart = (props) => {
 
 const TopCart = (props) => {
 
+  function handleRemoveAll() {
+    props.handleRemoveAll()
+  }
+
   return (
     <div className="cart__top">
       <h2>CART ({props.itemsNumber})</h2>
-      { props.itemsNumber > 0 && <a>Remove all</a> }
+      { props.itemsNumber > 0 && <a href="#" onClick={handleRemoveAll}>Remove all</a> }
     </div>
   )
 }

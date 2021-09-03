@@ -11,7 +11,7 @@ const Nav = () => {
   let history = useHistory();
   let windowSize = useWindowSize();
   let mainContent = document.querySelector(".main-content-container");
-  let body = document.querySelector("body");
+  let nav = document.querySelector(".main-nav");
   let menu = document.querySelector(".main-nav > .categories-list");
   let cart = document.querySelector(".cart")
   let menuLink = document.querySelector(".menu-link")
@@ -40,11 +40,13 @@ const Nav = () => {
       mainContent.classList.add("drop-shadow");
     }
     
-    body.addEventListener("click", hideMenu);
-    
+    mainContent.addEventListener("click", hideMenu);
+    nav.addEventListener("click", hideMenu);
+
     function hideMenu(event) {
+      e.stopPropagation()
       if (event.target != e.target && event.target != cartLink) {
-        hideNavMenu(menu);
+        hideNavMenu(menu)
       }
     }
   }
@@ -60,11 +62,13 @@ const Nav = () => {
       mainContent.classList.add("drop-shadow");
     }
     
-    body.addEventListener("click", hideMenu);
-    
+    mainContent.addEventListener("click", hideMenu);
+    nav.addEventListener("click", hideMenu);
+
     function hideMenu(event) {
+      e.stopPropagation()
       if (event.target != e.target && event.target != menuLink) {
-        hideNavMenu(cart);
+        hideNavMenu(cart)
       }
     }
   }

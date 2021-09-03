@@ -11,6 +11,7 @@ RSpec.describe "Product page", type: :feature, js: true do
                                  features: "xx59 features", 
                                  category: headphones) }
   let!(:manual) { create(:accessory, product: xx59) }                                 
+  let!(:bag) { create(:accessory, name: "bag", quantity: 3, product: xx59) }                                 
   let!(:xx99) { create(:product, name: "XX99 Headphones",
                                  also_name: "xx99 also",
                                  slug: "xx99-headphones",
@@ -104,6 +105,21 @@ RSpec.describe "Product page", type: :feature, js: true do
           click_button("-")
           expect(page).to have_content("3")
         end
+      end
+    end
+  end
+
+  describe "product accessories" do 
+
+    it "shows the product accessories" do 
+      expect(page).to have_content(manual.name)
+      expect(page).to have_content(bag.name)
+    end
+
+    it "shows the product accessories quantities" do 
+      within(".box-content-list") do 
+        expect(page).to have_content(manual.quantity)
+        expect(page).to have_content(bag.quantity)
       end
     end
   end
