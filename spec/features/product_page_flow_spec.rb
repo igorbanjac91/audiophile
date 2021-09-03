@@ -45,6 +45,17 @@ RSpec.describe "Product page", type: :feature, js: true do
     expect(page).to have_button("Add To Cart")
   end
 
+  it "has a go back link" do 
+    expect(page).to have_link("Go Back")
+  end
+
+  it "links back to the previus page" do 
+    visit categories_path(headphones.name)
+    click_link("SEE PRODUCT", href: products_path(xx59.slug))
+    click_link("Go Back")
+    expect(current_path).to eq(categories_path(headphones.name))
+  end
+  
   describe "suggested products" do 
     
     it "shows tree suggested products" do 

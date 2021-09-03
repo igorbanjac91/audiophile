@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import Home from './home/Home';
 import Categories from './categories/Categories';
 import Product from './products/Product';
@@ -10,7 +10,8 @@ import Checkout from "./checkout/Checkout";
 const App = () => {
 
   const [ orderId, setOrderId ] = useState(window.sessionStorage.getItem("orderId"));
-  
+  let history = useHistory();
+
   function handleSetOrderId(id) {
     setOrderId(id);
     window.sessionStorage.setItem("orderId", id);
@@ -30,7 +31,7 @@ const App = () => {
               <Categories />
             </Route>
             <Route exact path="/products/:name">
-              <Product handleSetOrderId={handleSetOrderId} />
+              <Product handleSetOrderId={handleSetOrderId} history={history}/>
             </Route>
             <Route exact path="/checkout">
               <Checkout orderId={orderId} />

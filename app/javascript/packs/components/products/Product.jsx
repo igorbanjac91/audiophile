@@ -7,10 +7,12 @@ import ButtonSeeProduct from "../shared/ButtonSeeProduct";
 import CategoriesList from "../shared/CategoriesList";
 import ButtonSelectQuantity from "../shared/ButtonSelectQauntity";
 import setAxiosHeaders from "../AxiosHeaders";
+import { useHistory } from "react-router-dom";
 
 const Product = (props) => {
-
+  
   let param = useParams();
+  const history = useHistory();
   const [ product, setProduct ] = useState();
   let [ quantity, setQuantity ] = useState(1);
 
@@ -31,7 +33,7 @@ const Product = (props) => {
 
   function handleClick(e) {
     e.preventDefault();
-    props.history.goBack();
+    history.goBack();
   }
 
   function handleChangeQuantity(e) {
@@ -74,7 +76,7 @@ const Product = (props) => {
     <div className="product">
       { product &&
         <div>
-          <a className="product__go-back-link" onClick={handleClick}>Go Back</a>
+          <a href="/" className="product__go-back-link" onClick={handleClick}>Go Back</a>
           <TopPage product={product} 
                    quantity={quantity} 
                    handleChangeQuantity={handleChangeQuantity} 
@@ -249,7 +251,7 @@ const AlsoLikeList = (props) => {
   })
 
   return (
-    <ul className="also-like-list">
+    <ul className="also-like-blist">
       {listItems}
     </ul>
   )
