@@ -14,6 +14,13 @@ class Api::V1::LineItemsController < ApplicationController
     @order.line_items.create(line_item_params)
   end
 
+  def destroy
+    LineItem.destroy(params[:id])
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
   protected 
 
     def line_item_params

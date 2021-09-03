@@ -72,9 +72,12 @@ RSpec.describe "Cart flow", type: :feature, js: true do
     end
 
     it "increases the cart quantity to 1" do
-      save_and_open_screenshot
       expect(page).to have_content("CART (1)")
       expect(page).to_not have_content("CART (0)")
+    end
+
+    it "show the product in the cart" do 
+      expect(page).to have_content(xx59.cart_name)
     end
 
     it "has a link for removing all products" do 
@@ -82,10 +85,18 @@ RSpec.describe "Cart flow", type: :feature, js: true do
     end
   end
 
-  describe "remove all products" do 
+  describe "removing all products" do 
     
     it "removes all products from the cart" do 
-
+      visit products_path(xx59.slug)
+      click_button("Add To Cart")
+      visit products_path(xx99.slug)
+      click_button("Add To Cart")
+      find(".cart-link").click
+      click_link("Remove all") 
+      expect(page).to have_content("COUNT (0)")
+      expect(page).to_not have_content(xx99.cart_name)
+      expect(page).to_not have_content(xx59.cart_name)
     end
   end
 end

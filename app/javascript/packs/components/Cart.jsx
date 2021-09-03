@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ButtonSelectQuantity from "./shared/ButtonSelectQauntity";
 import { Link } from "react-router-dom";
+import setAxiosHeaders from "./AxiosHeaders";
 
 const Cart = (props) => {
 
   const [ order, setOrder ] = useState();
+  const [ lineItems, setLineItems ] = useState([]);
   const [ empty, setEmpty ] = useState(true);
 
   useEffect(() => {
@@ -20,30 +22,45 @@ const Cart = (props) => {
       .then( response => {
         let fetchedOrder = response.data;
         setOrder(fetchedOrder);
-        setEmpty(false)
+        setLineItems(fetchedOrder.line_items)
+        if (fetchedOrder.line_items.length > 0) {
+          setEmpty(false)
+        }
       }).catch( e => {
         console.log(e);
       })
   }
 
-  function handleRemoveAll(e) {
-    e.preventDefault()
+
+  function handleRemoveAll() {
+    setAxiosHeaders();
+
+    order.line_items.forEach( (lineItem) => {
+      axios
+        .delete(`/api/v1/line_items/${lineItem.id}`)
+        .then(() => {
+          setLineItems([]);
+          setEmpty(true)
+        }).catch(e => console.log(e))
+    })
   }
 
   return (
     <div className="cart-container">
       <div className="cart" >
-        { empty &&<div className="empty">
-          <TopCart itemsNumber={0} handleRemoveAll={handleRemoveAll}/>
+        { !empty ?
+        <div>
+          <TopCart itemsNumber={lineItems.length} handleRemoveAll={handleRemoveAll} />
+          <CartListItems lineItems={lineItems}/>
+          <Total />
+          <CheckoutButton />
+        </div> 
+        : 
+        <div className="empty">
+          <TopCart itemsNumber={0} />
           <p className="empty__message">Your Cart is Empty</p>
           <Link to="/">Back to Shop</Link>
           <Total />
-        </div> }
-        { order && <div>
-          <TopCart itemsNumber={order.line_items.length} />
-          <CartListItems order={order}/>
-          <Total />
-          <CheckoutButton />
         </div> }
       </div>
     </div>
@@ -52,7 +69,8 @@ const Cart = (props) => {
 
 const TopCart = (props) => {
 
-  function handleRemoveAll() {
+  function handleRemoveAll(e) {
+    e.preventDefault()
     props.handleRemoveAll()
   }
 
@@ -66,7 +84,7 @@ const TopCart = (props) => {
 
 const CartListItems = (props) => {
 
-  let items = props.order.line_items.map( (lineItem) => {
+  let items = props.lineItems.map( (lineItem) => {
     let product = lineItem.product
     return <CartListItem key={product.id} product={product} quantity={lineItem.quantity} />
   })
