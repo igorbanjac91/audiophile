@@ -18,7 +18,7 @@ const Product = (props) => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [param]);
   
   function fetchProduct() {
     axios
@@ -31,8 +31,9 @@ const Product = (props) => {
     })
   }  
 
-  function handleClick(e) {
+  function goBack(e) {
     e.preventDefault();
+    console.log(history)
     history.goBack();
   }
 
@@ -76,7 +77,7 @@ const Product = (props) => {
     <div className="product">
       { product &&
         <div>
-          <a href="/" className="product__go-back-link" onClick={handleClick}>Go Back</a>
+          <a href="/" className="product__go-back-link" onClick={goBack}>Go Back</a>
           <TopPage product={product} 
                    quantity={quantity} 
                    handleChangeQuantity={handleChangeQuantity} 
@@ -113,8 +114,6 @@ const TopPage = (props) => {
   function handleAddToCart() {
     props.handleAddToCart();
   }
-
-  console.log(images)
 
   return (
     <section className="product__top-page">
@@ -260,7 +259,6 @@ const AlsoLikeList = (props) => {
 const AlsoLikeListItem = (props) => {
 
   let item = props.item
-  console.log(item)
   const windowSize = useWindowSize();
 
   let imageMobileUrl = item.mobile_image_url;
