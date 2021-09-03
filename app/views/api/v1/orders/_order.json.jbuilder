@@ -5,6 +5,6 @@ json.line_items order.line_items do |line_item|
     json.id line_item.product.id
     json.cart_name line_item.product.cart_name
     json.price line_item.product.price
-    json.cart_image line_item.product.cart_image.url
+    json.cart_image url_for(line_item.product.cart_image)
   end
 end

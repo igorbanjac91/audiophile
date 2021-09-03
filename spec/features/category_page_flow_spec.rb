@@ -31,5 +31,11 @@ RSpec.describe "Category page flow", type: :feature, js: true do
       expect(page).to have_link("SEE PRODUCT", href: "/products/#{xx59.slug}")
       expect(page).to have_link("SEE PRODUCT", href: "/products/#{xx99.slug}")
     end
+
+    it "visits the products page" do 
+      visit categories_path("headphones")
+      click_link("SEE PRODUCT", href: "/products/#{xx59.slug}")
+      expect(current_path).to eq(products_path(xx59.slug))
+    end
   end
 end

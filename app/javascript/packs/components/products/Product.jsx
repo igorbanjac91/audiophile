@@ -63,7 +63,6 @@ const Product = (props) => {
     axios
       .post("/api/v1/line_items", formData)
       .then( response => {
-        console.log(response)
         let orderId = response.data.order_id;
         props.handleSetOrderId(orderId);
       }).catch((e) => {
@@ -73,7 +72,7 @@ const Product = (props) => {
 
   return (
     <div className="product">
-      { product && 
+      { product &&
         <div>
           <a className="product__go-back-link" onClick={handleClick}>Go Back</a>
           <TopPage product={product} 
@@ -112,6 +111,8 @@ const TopPage = (props) => {
   function handleAddToCart() {
     props.handleAddToCart();
   }
+
+  console.log(images)
 
   return (
     <section className="product__top-page">
@@ -257,6 +258,7 @@ const AlsoLikeList = (props) => {
 const AlsoLikeListItem = (props) => {
 
   let item = props.item
+  console.log(item)
   const windowSize = useWindowSize();
 
   let imageMobileUrl = item.mobile_image_url;
@@ -270,7 +272,7 @@ const AlsoLikeListItem = (props) => {
       <div className="also-like-image" style={{ backgroundImage: `url(${imageUrl})`}}></div>
       <div className="info-container">
         <h4>{item.also_name}</h4>
-        <ButtonSeeProduct />
+        <ButtonSeeProduct slug={item.slug} />
       </div>
     </li>
   )
