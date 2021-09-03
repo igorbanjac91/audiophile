@@ -39,7 +39,7 @@ const Cart = (props) => {
           <Link to="/">Back to Shop</Link>
           <Total />
         </div> }
-        { order && <div className="full-cart">
+        { order && <div>
           <TopCart itemsNumber={order.line_items.length} />
           <CartListItems order={order}/>
           <Total />
@@ -110,7 +110,9 @@ const Total = (props) => {
 const CheckoutButton = () => {
 
   return (
-    <Link className="btn-checkout" to="/checkout">CHECKOUT</Link>
+    <Link href="#" 
+          className="btn-checkout"
+          to="/checkout">CHECKOUT</Link>
   )
 }
 

@@ -8,17 +8,18 @@ const Nav = () => {
 
   let [ menuDown, setMenuDown ] = useState(false);
   let [ cartDown, setCartDown ] = useState(false);
-  let history = useHistory();
   let windowSize = useWindowSize();
   let mainContent = document.querySelector(".main-content-container");
   let nav = document.querySelector(".main-nav");
+  let btnCheckout = document.querySelector(".btn-checkout");
   let menu = document.querySelector(".main-nav > .categories-list");
-  let cart = document.querySelector(".cart")
-  let menuLink = document.querySelector(".menu-link")
-  let cartLink = document.querySelector(".cart-link")
+  let cart = document.querySelector(".cart");
+  let menuLink = document.querySelector(".menu-link");
+  let cartLink = document.querySelector(".cart-link");
 
   useEffect(() => {
 
+    
     if ( windowSize.width > 960 ) {
       if (menuDown) {
         hideNavMenu(menu);
@@ -26,12 +27,9 @@ const Nav = () => {
     }    
   },[windowSize])
   
-
   function handleClickMenu(e) {
     e.preventDefault();
     
-    history.push("/");
-
     if (menuDown) {
       hideNavMenu(menu);
     } else {
@@ -42,7 +40,7 @@ const Nav = () => {
     
     mainContent.addEventListener("click", hideMenu);
     nav.addEventListener("click", hideMenu);
-
+    
     function hideMenu(event) {
       e.stopPropagation()
       if (event.target != e.target && event.target != cartLink) {
@@ -51,9 +49,15 @@ const Nav = () => {
     }
   }
 
+  if (btnCheckout) {
+    btnCheckout.addEventListener("click", () => {
+      hideNavMenu(cart)
+    })
+  }
+  
   function handleClickCart(e) {
     e.preventDefault();
-
+    
     if (cartDown) {
       hideNavMenu(cart);
     } else {
@@ -65,6 +69,7 @@ const Nav = () => {
     mainContent.addEventListener("click", hideMenu);
     nav.addEventListener("click", hideMenu);
 
+    
     function hideMenu(event) {
       e.stopPropagation()
       if (event.target != e.target && event.target != menuLink) {

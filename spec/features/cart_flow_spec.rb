@@ -72,6 +72,7 @@ RSpec.describe "Cart flow", type: :feature, js: true do
     end
 
     it "increases the cart quantity to 1" do
+      save_and_open_screenshot
       expect(page).to have_content("CART (1)")
       expect(page).to_not have_content("CART (0)")
     end
