@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './home/Home';
 import Categories from './categories/Categories';
 import Product from './products/Product';
@@ -10,6 +10,7 @@ import Checkout from "./checkout/Checkout";
 const App = () => {
 
   const [ orderId, setOrderId ] = useState(window.sessionStorage.getItem("orderId"));
+  
 
   function handleSetOrderId(id) {
     setOrderId(id);
@@ -23,17 +24,17 @@ const App = () => {
         <Cart orderId={orderId} />
         <div className="main-content-container">
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
             <Route exact path="/categories/:name">
               <Categories />
             </Route>
             <Route exact path="/products/:name">
-              <Product handleSetOrderId={handleSetOrderId}/>
+              <Product handleSetOrderId={handleSetOrderId} />
             </Route>
             <Route exact path="/checkout">
               <Checkout orderId={orderId} />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         </div>

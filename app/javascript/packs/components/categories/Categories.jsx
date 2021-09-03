@@ -13,6 +13,9 @@ const Categories = () => {
 
   useEffect(() => {
     fetchProducts();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' })
   }, [param]);
 
   function fetchProducts() {

@@ -15,9 +15,13 @@ const Product = (props) => {
   const history = useHistory();
   const [ product, setProduct ] = useState();
   let [ quantity, setQuantity ] = useState(1);
-
+  
   useEffect(() => {
     fetchProduct();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    })
   }, [param]);
   
   function fetchProduct() {
@@ -30,7 +34,7 @@ const Product = (props) => {
       console.log(e);
     })
   }  
-
+  
   function goBack(e) {
     e.preventDefault();
     console.log(history)
@@ -77,7 +81,9 @@ const Product = (props) => {
     <div className="product">
       { product &&
         <div>
-          <a href="/" className="product__go-back-link" onClick={goBack}>Go Back</a>
+          <a href="/" 
+             className="product__go-back-link"
+             onClick={goBack}>Go Back</a>
           <TopPage product={product} 
                    quantity={quantity} 
                    handleChangeQuantity={handleChangeQuantity} 
@@ -87,7 +93,7 @@ const Product = (props) => {
             <BoxContent accessories={product.accessories} />
           </div>
           <ProductGallery gallery={product.images.gallery} />
-          <AlsoLike alsoLike={product.also_like}/>
+          <AlsoLike alsoLike={product.also_like} />
           <CategoriesList />
         </div> 
       }
@@ -272,7 +278,7 @@ const AlsoLikeListItem = (props) => {
       <div className="also-like-image" style={{ backgroundImage: `url(${imageUrl})`}}></div>
       <div className="info-container">
         <h4>{item.also_name}</h4>
-        <ButtonSeeProduct slug={item.slug} />
+        <ButtonSeeProduct slug={item.slug} location={`/products/${item.slug}`}/>
       </div>
     </li>
   )

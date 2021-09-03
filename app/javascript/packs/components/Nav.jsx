@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { HamburgerIcon, Logo, CartIcon } from "./shared/Icons";
 import CategoriesList from "./shared/CategoriesList";
 import { useWindowSize } from "./utils";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Nav = () => {
 
   let [ menuDown, setMenuDown ] = useState(false);
   let [ cartDown, setCartDown ] = useState(false);
+  let history = useHistory();
   let windowSize = useWindowSize();
   let mainContent = document.querySelector(".main-content-container");
   let body = document.querySelector("body");
@@ -29,6 +30,8 @@ const Nav = () => {
   function handleClickMenu(e) {
     e.preventDefault();
     
+    history.push("/");
+
     if (menuDown) {
       hideNavMenu(menu);
     } else {
@@ -90,7 +93,7 @@ const Nav = () => {
     <nav className="main-nav">
       <ul>
         <li className="main-nav__menu">
-          <a className="menu-link" onClick={handleClickMenu} >
+          <a to="/" className="menu-link" onClick={handleClickMenu} >
             <HamburgerIcon />
           </a>
           <nav className="menu-nav">

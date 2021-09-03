@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CategoriesList from "../shared/CategoriesList";
 import { useWindowSize, setImage } from "../utils";
 import ButtonSeeProduct from "../shared/ButtonSeeProduct";
@@ -35,6 +35,12 @@ let thirdItem = {
 
 const Home = () => {
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' })
+  }) 
+
   return (
     <main className="home">
       <MainProduct item={mainItem} />
@@ -61,7 +67,7 @@ const MainProduct = () => {
     >
       <div className="main-product__content">
         <ProductInfo item={mainItem}/>
-        <ButtonSeeProduct slug={mainItem.slug}/>
+        <ButtonSeeProduct slug={mainItem.slug} location={"/"}/>
       </div>
     </header>
   )
@@ -95,7 +101,7 @@ const FirstProductListItem = () => {
       <img src={imageUrl} alt="speaker" />
       <div>
         <ProductInfo item={firstItem}/>
-        <ButtonSeeProduct slug={firstItem.slug}/>
+        <ButtonSeeProduct slug={firstItem.slug} location={"/"}/>
       </div>  
     </li>
   )
@@ -108,7 +114,7 @@ const SecondProductListItem = () => {
     <li className="top-products-list__second-item">
       <div>
         <ProductInfo item={secondItem}/>
-        <ButtonSeeProduct slug={secondItem.slug}/>
+        <ButtonSeeProduct slug={secondItem.slug } location={"/"}/>
       </div>
     </li>
   )
@@ -123,7 +129,7 @@ const ThirdProductListItem = () => {
       <div className="info-container">
         <div>
           <ProductInfo item={thirdItem} />
-          <ButtonSeeProduct slug={thirdItem.slug}/>
+          <ButtonSeeProduct slug={thirdItem.slug} location={"/"}/>
         </div>
       </div>
     </li>
