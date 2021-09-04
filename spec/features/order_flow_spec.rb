@@ -30,4 +30,8 @@ RSpec.describe "Order flow", type: :feature, js: true do
                                 features: "zx7 features", 
                                 category: speakers) }
 
+  before(:each) do 
+
+  end
 end
+  

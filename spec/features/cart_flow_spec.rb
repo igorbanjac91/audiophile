@@ -94,9 +94,26 @@ RSpec.describe "Cart flow", type: :feature, js: true do
       click_button("Add To Cart")
       find(".cart-link").click
       click_link("Remove all") 
-      expect(page).to have_content("COUNT (0)")
+      expect(page).to have_content("CART (0)")
       expect(page).to_not have_content(xx99.cart_name)
       expect(page).to_not have_content(xx59.cart_name)
+    end
+  end
+  
+
+  describe "adding a new product after clearing cart" do 
+    
+    it "shows the product in the cart" do 
+      visit products_path(xx59.slug)
+      click_button("Add To Cart")
+      find(".cart-link").click
+      click_link("Remove all")
+      find(".main-content-container").click
+      click_button("Add To Cart")
+      find(".cart-link").click
+      expect(page).to_not have_content("CART (0)")
+      expect(page).to have_content("CART (1)")
+      expect(page).to have_content(xx59.cart_name)
     end
   end
 end

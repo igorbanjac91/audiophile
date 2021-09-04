@@ -6,30 +6,33 @@ import setAxiosHeaders from "./AxiosHeaders";
 
 const Cart = (props) => {
 
-  const [ order, setOrder ] = useState();
-  const [ lineItems, setLineItems ] = useState([]);
-  const [ empty, setEmpty ] = useState(true);
+  let order = props.order
+  let lineItems = props.lineItems
 
-  useEffect(() => {
-    if (props.orderId) {
-      getOrder();
-    }
-  }, [props.orderId])
+  // const [ order, setOrder ] = useState();
+  // const [ lineItems, setLineItems ] = useState([]);
+  // const [ empty, setEmpty ] = useState(true);
+
+  // useEffect(() => {
+  //   if (props.orderId) {
+  //     getOrder();
+  //   }
+  // }, [props.orderId])
  
-  function getOrder() {
-    axios
-      .get(`/api/v1/orders/${props.orderId}`)
-      .then( response => {
-        let fetchedOrder = response.data;
-        setOrder(fetchedOrder);
-        setLineItems(fetchedOrder.line_items)
-        if (fetchedOrder.line_items.length > 0) {
-          setEmpty(false)
-        }
-      }).catch( e => {
-        console.log(e);
-      })
-  }
+  // function getOrder() {
+  //   axios
+  //     .get(`/api/v1/orders/${props.orderId}`)
+  //     .then( response => {
+  //       let fetchedOrder = response.data;
+  //       setOrder(fetchedOrder);
+  //       setLineItems(fetchedOrder.line_items)
+  //       if (fetchedOrder.line_items.length > 0) {
+  //         setEmpty(false)
+  //       }
+  //     }).catch( e => {
+  //       console.log(e);
+  //     })
+  // }
 
 
   function handleRemoveAll() {
@@ -39,8 +42,7 @@ const Cart = (props) => {
       axios
         .delete(`/api/v1/line_items/${lineItem.id}`)
         .then(() => {
-          setLineItems([]);
-          setEmpty(true)
+          props.handleRemoveAll();
         }).catch(e => console.log(e))
     })
   }
@@ -48,7 +50,7 @@ const Cart = (props) => {
   return (
     <div className="cart-container">
       <div className="cart" >
-        { !empty ?
+        { Object.keys(order).length != 0 ?
         <div>
           <TopCart itemsNumber={lineItems.length} handleRemoveAll={handleRemoveAll} />
           <CartListItems lineItems={lineItems}/>
@@ -64,6 +66,24 @@ const Cart = (props) => {
         </div> }
       </div>
     </div>
+    // <div className="cart-container">
+    //   <div className="cart" >
+    //     { !empty ?
+    //     <div>
+    //       <TopCart itemsNumber={lineItems.length} handleRemoveAll={handleRemoveAll} />
+    //       <CartListItems lineItems={lineItems}/>
+    //       <Total />
+    //       <CheckoutButton />
+    //     </div> 
+    //     : 
+    //     <div className="empty">
+    //       <TopCart itemsNumber={0} />
+    //       <p className="empty__message">Your Cart is Empty</p>
+    //       <Link to="/">Back to Shop</Link>
+    //       <Total />
+    //     </div> }
+    //   </div>
+    // </div>
   )
 }
 
