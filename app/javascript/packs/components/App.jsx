@@ -39,7 +39,14 @@ const App = () => {
   function handleSetOrderId(id) {
     window.sessionStorage.setItem("orderId", id);
     setOrderId(id);
-    getOrder()
+    if (orderId) {
+      getOrder();
+    }
+  }
+
+  function clearLineItems() {
+    setLineItems([]);
+    setOrder({});
   }
 
   return (
@@ -49,7 +56,8 @@ const App = () => {
         <Cart orderId={orderId} 
               order={order} 
               lineItems={lineItems}
-              handleRemoveAll={handleRemoveAll} />
+              handleRemoveAll={handleRemoveAll} 
+              clearLineItems={clearLineItems} />
         <div className="main-content-container">
           <Switch>
             <Route exact path="/categories/:name">

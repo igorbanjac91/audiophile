@@ -87,16 +87,27 @@ RSpec.describe "Cart flow", type: :feature, js: true do
 
   describe "removing all products" do 
     
-    it "removes all products from the cart" do 
+    before(:each) do 
       visit products_path(xx59.slug)
       click_button("Add To Cart")
       visit products_path(xx99.slug)
       click_button("Add To Cart")
       find(".cart-link").click
       click_link("Remove all") 
+    end
+    
+    it "removes all products from the cart" do 
       expect(page).to have_content("CART (0)")
       expect(page).to_not have_content(xx99.cart_name)
       expect(page).to_not have_content(xx59.cart_name)
+    end
+
+    it "doesn't show the checkout button" do 
+      expect(page).to_not have_button("checkout")
+    end
+
+    it "shows the message that the cart is empty" do 
+      expect(page).to have_content("Your Cart is Empty")
     end
   end
   
