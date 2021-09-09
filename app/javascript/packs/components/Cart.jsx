@@ -29,7 +29,7 @@ const Cart = (props) => {
         <div>
           <TopCart itemsNumber={lineItems.length} handleRemoveAll={handleRemoveAll} />
           <CartListItems lineItems={lineItems}/>
-          <Total />
+          <Total lineItems={lineItems}/>
           <CheckoutButton />
         </div> 
         : 
@@ -94,10 +94,21 @@ const CartListItem  = (props) => {
 
 const Total = (props) => {
 
+  let total = 0;
+
+
+  if (props.lineItems) {
+    total = props.lineItems.reduce((prev, lineItem) => {
+      return prev + (lineItem.quantity * lineItem.product.price)
+    }, 0)
+  }
+
+  console.log(total)
+
   return (
     <div className="cart__total">
       <span>TOTAL</span>
-      <span>$ 0</span>
+      <span>$ {total}</span>
     </div>
   )
 }

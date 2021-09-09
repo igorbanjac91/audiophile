@@ -10,6 +10,7 @@ RSpec.describe "Cart flow", type: :feature, js: true do
                                  slug: "xx59-headphones",
                                  description: "xx59 description", 
                                  features: "xx59 features", 
+                                 price: 200,
                                  category: headphones) }
   let!(:manual) { create(:accessory, product: xx59) }                                 
   let!(:xx99) { create(:product, name: "XX99 Headphones",
@@ -18,6 +19,7 @@ RSpec.describe "Cart flow", type: :feature, js: true do
                                  slug: "xx99-headphones",
                                  description: "xx99 description", 
                                  features: "xx99 features", 
+                                 price: 100,
                                  category: headphones) }
   let!(:zx9) { create(:product, name: "ZX9 Headphones", 
                                 also_name: "zx9 also",
@@ -25,6 +27,7 @@ RSpec.describe "Cart flow", type: :feature, js: true do
                                 slug: "zx9-speakers",
                                 description: "zx9 description", 
                                 features: "zx9 features", 
+                                price: 300,
                                 category: speakers) }
   let!(:zx7) { create(:product, name: "ZX7 Speaker", 
                                 also_name: "zx7 also",
@@ -32,6 +35,7 @@ RSpec.describe "Cart flow", type: :feature, js: true do
                                 slug: "zx7-speaker",
                                 description: "zx7 description", 
                                 features: "zx7 features", 
+                                price: 400,
                                 category: speakers) }
   
 
@@ -82,6 +86,20 @@ RSpec.describe "Cart flow", type: :feature, js: true do
 
     it "has a link for removing all products" do 
       expect(page).to have_link("Remove all")
+    end
+  end
+
+  describe "total of cart" do 
+
+    it "shows the total amont" do 
+      visit products_path(xx59.slug)
+      click_button("Add To Cart")
+      visit products_path(xx99.slug)
+      click_button("Add To Cart")
+      visit products_path(zx7.slug)
+      click_button("Add To Cart")
+      find(".cart-link").click
+      expect(page).to have_content("700")
     end
   end
 
