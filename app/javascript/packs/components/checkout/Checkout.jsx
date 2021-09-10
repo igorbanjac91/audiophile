@@ -1,37 +1,23 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import SuccessWindow from "./SuccessWindow";
 
 const Checkout = (props) => {
 
-  const [ order, setOrder ] = useState();
+  let order = props.order
+  let lineItems = props.lineItems
   const [ success, setSuccess ] = useState(true);
 
   let aboutSection = document.querySelector(".about");
   aboutSection.style.display = "none";    
-
-  useEffect(() => {
-    getOrder();
-  }, [props.orderId])
- 
-  function getOrder() {
-    axios
-      .get(`/api/v1/orders/${props.orderId}`)
-      .then( response => {
-        let fetchedOrder = response.data;
-        setOrder(fetchedOrder);
-      }).catch( e => {
-        console.log(e);
-      })
-  }
 
   return (      
     <div className="checkout-container">
       <a className="go-back-link">Go Back</a>
       { order && <div className="checkout">
         <CheckoutForm />
-        <CheckoutSummary items={order.line_items} />
-        { success && <SuccessWindow order={order} /> }
+        <CheckoutSummary lineItems={lineItems} />
+        { success && <SuccessWindow order={order}
+                                    lineItems={lineItems}/> }
       </div> }
     </div>
   )
@@ -110,8 +96,8 @@ const CheckoutSummary = (props) => {
   return (
     <div className="checkout__summary">
       <h3>SUMMARY</h3>
-      <SummaryListItems items={props.items}/>
-      <SummaryAmount />
+      <SummaryListItems lineItems={props.lineItems}/>
+      <SummaryAmount lineItems={props.lineItems} />
       <PayButton />
     </div>
   )
@@ -119,7 +105,7 @@ const CheckoutSummary = (props) => {
 
 const SummaryListItems = (props) => {
 
-  let items = props.items.map((item) => {
+  let items = props.lineItems.map((item) => {
     return <SummaryItem key={item.product.id} 
                         product={item.product}
                         quantity={item.quantity} />
@@ -150,12 +136,24 @@ const SummaryItem = (props) => {
   )
 }
 
-const SummaryAmount = () => {
+const SummaryAmount = (props) => {
+
+  let total = 0;
+
+  if (props.lineItems) {
+    total = props.lineItems.reduce((prev, lineItem) => {
+      return prev + (lineItem.quantity * lineItem.product.price)
+    }, 0)
+  }
+  let shipping = 50;
+  let vat = total / 100 * 20;
+  let grandTotal = vat + total + shipping;
+  
   return (
     <div className="amount">
       <div className="amount__total">
         <span>TOTAL</span>
-        <span>$ 5242</span>
+        <span>$ {total}</span>
       </div>
       <div className="amount__shipping">
         <span>SHIPPING</span>
@@ -163,11 +161,11 @@ const SummaryAmount = () => {
       </div>
       <div className="amount__vat">
         <span>VAT (INCLUDED)</span>
-        <span>$ 1034</span>
+        <span>$ {vat}</span>
       </div>
       <div className="amount__grand-total">
         <span>GRAND TOTAL</span>
-        <span>$ 6293</span>
+        <span>$ {grandTotal}</span>
       </div>
     </div>
   )

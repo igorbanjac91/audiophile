@@ -85,7 +85,8 @@ const App = () => {
               <Product handleSetOrderId={handleSetOrderId} />
             </Route>
             <Route exact path="/checkout">
-              <Checkout orderId={orderId} />
+              <Checkout order={order} 
+                        lineItems={lineItems}/>
             </Route>
             <Route exact path="/">
               <Home />

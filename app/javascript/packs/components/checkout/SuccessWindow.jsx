@@ -15,7 +15,7 @@ const SuccessWindow = (props) => {
           <p>You will receive an email confirmation shortly.</p>
         </div>
         <div className="success-window__order-info">
-          <ListItems lineItems={props.order.line_items} /> 
+          <ListItems lineItems={props.lineItems} /> 
           <GrandTotal />
         </div>
         <BackHomeButton />
