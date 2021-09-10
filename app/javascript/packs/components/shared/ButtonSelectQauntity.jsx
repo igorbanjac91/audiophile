@@ -10,9 +10,9 @@ const ButtonSelectQuantity = (props) => {
 
   return (
     <div className="select-quantity">
-      <button onClick={handleChangeQuantity}>-</button>
+      <button className="btn-minus" onClick={handleChangeQuantity}>-</button>
       <span>{quantity}</span>
-      <button onClick={handleChangeQuantity}>+</button>
+      <button className="btn-plus" onClick={handleChangeQuantity}>+</button>
     </div>
   )
 }

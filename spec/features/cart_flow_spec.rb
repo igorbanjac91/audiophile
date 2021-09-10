@@ -145,4 +145,19 @@ RSpec.describe "Cart flow", type: :feature, js: true do
       expect(page).to have_content(xx59.cart_name)
     end
   end
+
+  describe "changing quantity in the cart" do 
+
+    it "adds 1 unit when clicking to the plus button" do 
+      visit products_path(xx59.slug)
+      click_button("Add To Cart")
+      find(".cart-link").click
+      within(".cart") do 
+        find(".btn-plus").click
+        expect(page).to have_content("2")
+      end
+    end
+  end
 end
+
+

@@ -7,6 +7,7 @@ import Product from './products/Product';
 import Nav from "./Nav";
 import Cart from "./Cart";
 import Checkout from "./checkout/Checkout";
+import setAxiosHeaders from "./AxiosHeaders";
 
 const App = () => {
 
@@ -26,7 +27,7 @@ const App = () => {
       .then( response => {
         let fetchedOrder = response.data;
         setOrder(fetchedOrder);
-        setLineItems(fetchedOrder.line_items)
+        setLineItems(fetchedOrder.line_items);
       }).catch( e => {
         console.log(e);
       })
@@ -49,6 +50,22 @@ const App = () => {
     setOrder({});
   }
 
+  function handleChangeQuantity(id, quantity) {
+    setAxiosHeaders();
+
+    let data = new FormData();
+    data.append("line_item[quantity]", quantity);
+
+    axios
+      .put(`/api/v1/line_items/${id}`, data)
+      .then( response => {
+        console.log(response);
+        getOrder();
+      }).catch(e => {
+        console.log(e);
+      })
+  }
+
   return (
     <div>
       <Router>
@@ -57,7 +74,8 @@ const App = () => {
               order={order} 
               lineItems={lineItems}
               handleRemoveAll={handleRemoveAll} 
-              clearLineItems={clearLineItems} />
+              clearLineItems={clearLineItems}
+              handleChangeQuantity={handleChangeQuantity} />
         <div className="main-content-container">
           <Switch>
             <Route exact path="/categories/:name">

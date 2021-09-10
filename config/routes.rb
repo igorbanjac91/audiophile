@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :products, only: [:index, :show]
       resources :categories, only: [:index, :show]
-      resources :line_items, only: [:create, :destroy]
+      resources :line_items, only: [:create, :destroy, :update]
       resources :orders, only: [:show]
     end
   end

@@ -107,8 +107,6 @@ const CheckoutForm = () => {
 
 const CheckoutSummary = (props) => {
 
-  console.log(props)
-
   return (
     <div className="checkout__summary">
       <h3>SUMMARY</h3>

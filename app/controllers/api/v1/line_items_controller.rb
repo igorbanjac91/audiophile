@@ -21,6 +21,11 @@ class Api::V1::LineItemsController < ApplicationController
     end
   end
 
+  def update
+    line_item = LineItem.find(params[:id]);
+    line_item.update(line_item_params)
+  end
+
   protected 
 
     def line_item_params

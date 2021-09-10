@@ -1,11 +1,11 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonSelectQuantity from "./shared/ButtonSelectQauntity";
 import { Link } from "react-router-dom";
 import setAxiosHeaders from "./AxiosHeaders";
 
 const Cart = (props) => {
-
+  
   let order = props.order
   let lineItems = props.lineItems
 
@@ -22,14 +22,18 @@ const Cart = (props) => {
     })
   }
 
+  function handleChangeQuantity(id, quantity) {
+    props.handleChangeQuantity(id, quantity);
+  }
+
   return (
     <div className="cart-container">
       <div className="cart" >
         { Object.keys(order).length != 0 ?
         <div>
           <TopCart itemsNumber={lineItems.length} handleRemoveAll={handleRemoveAll} />
-          <CartListItems lineItems={lineItems}/>
-          <Total lineItems={lineItems}/>
+          <CartListItems lineItems={lineItems} handleChangeQuantity={handleChangeQuantity}/>
+          <Total lineItems={lineItems} />
           <CheckoutButton />
         </div> 
         : 
@@ -61,9 +65,17 @@ const TopCart = (props) => {
 
 const CartListItems = (props) => {
 
+  function handleChangeQuantity(id, quantity) {
+    props.handleChangeQuantity(id, quantity);
+  }
+
   let items = props.lineItems.map( (lineItem) => {
     let product = lineItem.product
-    return <CartListItem key={product.id} product={product} quantity={lineItem.quantity} />
+    return <CartListItem key={product.id} 
+                         product={product} 
+                         quantity={lineItem.quantity} 
+                         id={lineItem.id}
+                         handleChangeQuantity={handleChangeQuantity} />
   })
 
   return (
@@ -77,8 +89,34 @@ const CartListItems = (props) => {
 
 const CartListItem  = (props) => {
 
-  let product = props.product
-  let subTotal = Number(product.price) * Number(props.quantity);
+  const [ quantity, setQuantity ] = useState(props.quantity);
+
+  let product = props.product;
+  let subTotal = Number(product.price) * Number(quantity);
+
+  function handleChangeQuantity(e) {
+    e.preventDefault();
+    let sign = e.target.textContent;
+    let newquauntity;
+    switch (sign) {
+      case "+":
+        newquauntity = quantity + 1;
+        setQuantity(quantity + 1);
+        break;
+      case "-":
+        if (quantity == 1) {
+          newquauntity = 1;
+          break;
+        }
+        newquauntity = quantity - 1;
+        setQuantity(quantity - 1);
+        break;
+      default:
+        console.log("error");
+        break;
+    }
+    props.handleChangeQuantity(props.id, newquauntity);
+  }
 
   return (
     <li className="cart-item">
@@ -87,7 +125,7 @@ const CartListItem  = (props) => {
         <h3>{product.cart_name}</h3>
         <span>$ {subTotal}</span>
       </div>
-      <ButtonSelectQuantity quantity={props.quantity} />
+      <ButtonSelectQuantity quantity={quantity} handleChangeQuantity={handleChangeQuantity}/>
     </li>
   ) 
 }
@@ -102,9 +140,7 @@ const Total = (props) => {
       return prev + (lineItem.quantity * lineItem.product.price)
     }, 0)
   }
-
-  console.log(total)
-
+  
   return (
     <div className="cart__total">
       <span>TOTAL</span>
