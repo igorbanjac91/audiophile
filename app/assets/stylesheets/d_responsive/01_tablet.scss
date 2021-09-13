@@ -379,6 +379,16 @@
           margin-top: 0px;
         }
       }
+
+      .e-money-fields {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .field {
+          flex: 0 1 49%
+        }
+      }
     }
   }
 

@@ -378,6 +378,13 @@
 
   /*-----------------CHECKOUT -----------------------------------*/
 
+  .checkout-container {
+      
+    .go-back-link {
+      margin-top: 90px;
+    }
+  }
+
   .checkout {
 
     display: flex;
@@ -385,11 +392,11 @@
     justify-content: space-between;
 
     &__form {
-      flex: 0 1 65%;
+      flex: 0 1 70%;
     }
 
     &__summary {
-      flex: 0 1 33%;
+      flex: 0 1 29%;
       height: fit-content;
       margin-left: 30px;
     }

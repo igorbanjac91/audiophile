@@ -56,6 +56,10 @@
         border: 1px solid $grey-light;
         border-radius: 8px;
       }
+
+      .radio-container:hover {
+        border:  1px solid $primary;
+      }
       
       .radio-label {
         display: inline-block;
@@ -108,20 +112,34 @@
       }
     }
     
-    div:last-child {
-      margin-bottom: 0px;
-      
-      div:last-child {
-        
-        input:last-child {
-          margin-bottom: 0px;
-        }
+    .e-money-fields {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cash-delivery-message {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        margin-right: 32px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 25px;
+        opacity: .5;
       }
     }
     .field--alert {
       color: $alert;
     
-      input[type="text"] {
+      input[type="text"],
+      input[type="tel"],
+      input[type="email"] {
         border: 2px solid $alert;
       }
     }
