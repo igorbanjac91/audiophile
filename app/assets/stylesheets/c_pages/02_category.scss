@@ -4,7 +4,9 @@
 
   .products-list {
     width: 86%;
+    max-width: 1100px;
     padding: 0 7%;
+    margin: 0 auto;
     margin-top: 64px;
 
     &__item:nth-child(even) {
