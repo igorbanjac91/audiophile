@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import SuccessWindow from "./SuccessWindow";
+import CheckoutForm from "./CheckoutForm";
+
 
 const Checkout = (props) => {
 
@@ -19,74 +21,6 @@ const Checkout = (props) => {
         { success && <SuccessWindow order={order}
                                     lineItems={lineItems}/> }
       </div> }
-    </div>
-  )
-}
-
-const CheckoutForm = () => {
-  return (
-    <div className="checkout__form">
-      <h2>CHECKOUT</h2>
-      <form>
-        <div className="form-section">
-          <h4>BILLING DETAILS</h4>
-          <div className="field">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" />
-          </div>
-          <div className="field">
-            <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" />
-          </div>
-          <div className="field">
-            <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" />
-          </div>
-        </div>
-        <div className="form-section">
-          <h4>SHIPPING INFO</h4>
-          <div className="field address-field">
-            <label htmlFor="address">Your Address</label>
-            <input type="text" id="address" />
-          </div>
-          <div className="field">
-            <label htmlFor="zip">ZIP Code</label>
-            <input type="text" id="zip" />
-          </div>
-          <div className="field">
-            <label htmlFor="city">City</label>
-            <input type="text" id="city" />
-          </div>
-          <div className="field">
-            <label htmlFor="country">Country</label>
-            <input type="text" id="country" />
-          </div>
-        </div>
-        <div className="form-section">
-          <h4>PAYMENT DETAILS</h4>
-          <div className="field payment-field">
-            <label htmlFor="payment">Payment Method</label>
-            <div className="radio-options">
-              <div className="radio-container">
-                <input type="radio" id="e-money" value="e-money" name="payment" />
-                <label className="radio-label" htmlFor="e-money">e-Money</label>
-              </div>
-              <div className="radio-container">
-                <input type="radio" id="cash" value="cash" name="payment" />
-                <label className="radio-label" htmlFor="cash">Cash on Delivery</label>
-              </div>
-            </div>
-          </div>
-          <div className="field">
-            <label htmlFor="e-money-number">e-Money Number</label>
-            <input type="text" id="e-money-number" />
-          </div>
-          <div className="field">
-            <label htmlFor="pin">e-Money PIN</label>
-            <input type="text" id="pin" />
-          </div>
-        </div>
-      </form>
     </div>
   )
 }

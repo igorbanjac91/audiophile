@@ -99,7 +99,7 @@ RSpec.describe "Cart flow", type: :feature, js: true do
       visit products_path(zx7.slug)
       click_button("Add To Cart")
       find(".cart-link").click
-      expect(page).to have_content("700")
+      expect(page).to have_content("300")
     end
   end
 

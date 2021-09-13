@@ -1,4 +1,4 @@
-Capybara.default_max_wait_time = 5
+Capybara.default_max_wait_time = 6
 
 Capybara.register_driver :chrome_headless do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(

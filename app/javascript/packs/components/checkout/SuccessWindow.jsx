@@ -15,7 +15,7 @@ const SuccessWindow = (props) => {
           <p>You will receive an email confirmation shortly.</p>
         </div>
         <div className="success-window__order-info">
-          <ListItems lineItems={props.lineItems} /> 
+          <ListItems lineItems={props.lineItems } /> 
           <GrandTotal />
         </div>
         <BackHomeButton />
@@ -54,7 +54,7 @@ const ListItems = (props) => {
 
   if (itemsNumber == 1) {
     return (
-      <div className="list-line-itmes">
+      <div className="list-line-items">
         <ul>
           {firstItem}
         </ul>
