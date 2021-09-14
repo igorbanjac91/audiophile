@@ -18,6 +18,8 @@ const CheckoutForm = () => {
   const [ zipEmpty, setZipEmpty ] = useState(false);
   const [ cityEmpty, setCityEmpty ] = useState(false);
   const [ countryEmpty, setCountryEmpty ] = useState(false);
+  const [ eMoneyNumberEmpty, setEMoneyNumberEmpty ] = useState(false);
+  const [ eMoneyPinEmpty, setEMoneyPinEmpty ] = useState(false);
   const [ selectedRadionBtn, setSelectedRadioBtn] = useState("e-money");
 
 
@@ -173,6 +175,48 @@ const CheckoutForm = () => {
     }
   }
 
+  // e-Money Number Validations
+  
+  function handleEMonyeNumberChange(e) {
+    let field = e.target.parentElement;
+    if (e.target.value === "") {
+      setEMoneyNumberEmpty(true);
+      field.classList.add("field--alert");
+    } else {
+      setEMoneyNumberEmpty(false);
+      field.classList.remove("field--alert");
+    }
+  }
+  
+  function handleEMonyNumberBlur(e) {
+    let field = e.target.parentElement
+    if (e.target.value === "") {
+      setEMoneyNumberEmpty(true);
+      field.classList.add("field--alert");
+    }
+  }
+
+  // Country Validations
+  
+  function handleEMoneyPinChange(e) {
+    let field = e.target.parentElement;
+    if (e.target.value === "") {
+      setEMoneyPinEmpty(true);
+      field.classList.add("field--alert");
+    } else {
+      setEMoneyPinEmpty(false);
+      field.classList.remove("field--alert");
+    }
+  }
+  
+  function handleEMoneyPinBlur(e) {
+    let field = e.target.parentElement
+    if (e.target.value === "") {
+      setEMoneyPinEmpty(true);
+      field.classList.add("field--alert");
+    }
+  }
+
 
   function isRadioChecked(value) {
     return selectedRadionBtn === value
@@ -301,24 +345,63 @@ const CheckoutForm = () => {
               </div>
             </div>
           </div>
-          { isRadioChecked("e-money") ? <EMoneyFields /> : <CashDeliveryMessage /> }
+          { isRadioChecked("e-money") ? 
+            <EMoneyFields handleEMonyNumberBlur={handleEMonyNumberBlur} 
+                          handleEMonyeNumberChange={handleEMonyeNumberChange}
+                          handleEMoneyPinBlur={handleEMoneyPinBlur}
+                          handleEMoneyPinChange={handleEMoneyPinChange}
+                          eMoneyNumberEmpty={eMoneyNumberEmpty} 
+                          eMoneyPinEmpty={eMoneyPinEmpty}/> 
+            : 
+            <CashDeliveryMessage /> }
         </div>
       </form>
     </div>
   )
 }
 
-const EMoneyFields = function() {
+const EMoneyFields = function(props) {
+
+  const eMoneyNumberRequiredmessage = "Number card is required";
+  const eMoneyPinRequiredmessage = "PIN is required";
+
+  function handleEMonyNumberBlur(e) {
+    props.handleEMonyNumberBlur(e);
+  }
+
+  function handleEMonyeNumberChange(e) {
+    props.handleEMonyeNumberChange(e);
+  }
+
+  function handleEMoneyPinBlur(e) {
+    props.handleEMoneyPinBlur(e);
+  }
+      
+  function handleEMoneyPinChange(e) {
+    props.handleEMoneyPinChange(e);
+  }
 
   return (
     <div className="e-money-fields">
       <div className="field">
-        <label htmlFor="e-money-number">e-Money Number</label>
-        <input type="text" id="e-money-number" />
+        <div className="top-field">
+          <label htmlFor="e-money-number">e-Money Number</label>
+          { props.eMoneyNumberEmpty && <span className="error-message">{eMoneyNumberRequiredmessage}</span> }
+        </div>
+          <input type="text"
+                 id="e-money-number"
+                 onChange={handleEMonyeNumberChange}
+                 onBlur={handleEMonyNumberBlur} />
       </div>
       <div className="field">
-        <label htmlFor="pin">e-Money PIN</label>
-        <input type="text" id="pin" />
+        <div className="top-field">
+          <label htmlFor="pin">e-Money PIN</label>
+          { props.eMoneyPinEmpty && <span className="error-message">{eMoneyPinRequiredmessage}</span> }
+        </div>
+          <input type="text"
+                 id="pin"
+                 onChange={handleEMoneyPinChange}
+                 onBlur={handleEMoneyPinBlur} />
       </div>    
     </div>
   )

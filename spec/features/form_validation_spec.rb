@@ -84,6 +84,27 @@ RSpec.describe "Form validatons", type: :feature, js: true do
         expect(page).to have_content("Country is required")
       end
     end
-     
+    
+    context "when paying with e-monye" do 
+      
+      context "after shifting foucs from e-Money Number field to another" do 
+  
+        it "shows an error if the e-Money field is empty" do 
+          find("#e-money-number").click
+          find("#email").click
+          expect(page).to have_content("Number card is required")
+        end
+      end
+
+      context "after shifting foucs from e-Money PIN field to another" do 
+  
+        it "shows an error if the e-Mony PIN field is empty" do 
+          find("#pin").click
+          find("#email").click
+          expect(page).to have_content("PIN is required")
+        end
+      end
+      
+    end
   end
 end

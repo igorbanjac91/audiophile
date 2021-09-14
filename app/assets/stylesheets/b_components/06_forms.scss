@@ -21,9 +21,11 @@
       .top-field {
         display: flex;
         justify-content: space-between;
+        align-items: flex-end;
         
         .error-message {
           font-size: 12px;
+          margin-bottom: 9px;
         }
       }
       
