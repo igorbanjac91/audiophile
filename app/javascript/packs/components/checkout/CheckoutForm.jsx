@@ -353,6 +353,7 @@ const CheckoutForm = () => {
                           eMoneyNumberEmpty={eMoneyNumberEmpty} 
                           eMoneyPinEmpty={eMoneyPinEmpty}/> 
             : 
+            
             <CashDeliveryMessage /> }
         </div>
       </form>

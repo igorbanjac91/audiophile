@@ -30,9 +30,9 @@ const CheckoutSummary = (props) => {
   return (
     <div className="checkout__summary">
       <h3>SUMMARY</h3>
-      <SummaryListItems lineItems={props.lineItems}/>
+      <SummaryListItems lineItems={props.lineItems} />
       <SummaryAmount lineItems={props.lineItems} />
-      <PayButton />
+      <PayButton validForm={props.validForm} />
     </div>
   )
 }
@@ -106,14 +106,33 @@ const SummaryAmount = (props) => {
 }
 
 
-const PayButton = () => {
+const PayButton = (props) => {
 
+  
+  
   function handleClick(e) {
-    let successWindow = document.querySelector(".success-window-container");
-    let body = document.querySelector("body");
+    let validForm = true;
+  
+    function validate() {
+      let fields = document.querySelectorAll("input")
+      fields.forEach((field) => {
+        if (field.value == "") {
+          validForm = false;
+        }
+      })
+    }
 
-    successWindow.style.display = "block";
-    body.classList.add("drop-shadow");
+    validate();
+
+    if (validForm) {
+      let successWindow = document.querySelector(".success-window-container");
+      let body = document.querySelector("body");
+  
+      successWindow.style.display = "block";
+      body.classList.add("drop-shadow");
+    } else {
+
+    }
   }
 
   return (
