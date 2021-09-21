@@ -33,20 +33,21 @@
   
   &__form {
     margin-bottom: 64px;
-    background-color: $white;
+    background-color: $light;
     border-radius: 8px;
     
     h2 {
+      padding-top: 12px;
+      padding-bottom: 32px;
       font-size: 28px;
       font-weight: 700;
       letter-spacing: 1px;
-      margin-bottom: 32px;
+      background-color: $white;
     }
   }
   
   &__summary {
     background-color: $white;
-    padding: 32px 24px;
     border-radius: 8px;
 
     h3 {

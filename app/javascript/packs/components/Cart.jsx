@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ButtonSelectQuantity from "./shared/ButtonSelectQauntity";
 import { Link } from "react-router-dom";
 import setAxiosHeaders from "./AxiosHeaders";
@@ -26,6 +26,13 @@ const Cart = (props) => {
     props.handleChangeQuantity(id, quantity);
   }
 
+  function handleBackToShopClick() {
+    let mainContent = document.querySelector(".main-content-container");
+    let cart = document.querySelector(".cart");
+    mainContent.classList.remove("drop-shadow");
+    cart.style.display = "none";
+  }
+
   return (
     <div className="cart-container">
       <div className="cart" >
@@ -40,7 +47,7 @@ const Cart = (props) => {
         <div className="empty">
           <TopCart itemsNumber={0} />
           <p className="empty__message">Your Cart is Empty</p>
-          <Link to="/">Back to Shop</Link>
+          <Link to="/" onClick={handleBackToShopClick}>Back to Shop</Link>
           <Total />
         </div> }
       </div>

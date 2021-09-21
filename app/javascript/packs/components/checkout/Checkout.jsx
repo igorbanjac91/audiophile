@@ -16,8 +16,8 @@ const Checkout = (props) => {
     <div className="checkout-container">
       <a className="go-back-link">Go Back</a>
       { order && <div className="checkout">
-        <CheckoutForm />
-        <CheckoutSummary lineItems={lineItems} />
+        <CheckoutForm lineItems={lineItems}/>
+        {/* <CheckoutSummary lineItems={lineItems} /> */}
         { success && <SuccessWindow order={order}
                                     lineItems={lineItems}/> }
       </div> }

@@ -386,19 +386,24 @@
   }
 
   .checkout {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
+    
     &__form {
-      flex: 0 1 70%;
-    }
 
-    &__summary {
-      flex: 0 1 29%;
-      height: fit-content;
-      margin-left: 30px;
+      form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .top-form {
+        flex: 0 1 70%;
+      }
+      
+      .bottom-form {
+        flex: 0 1 29%;
+        height: fit-content;
+        margin-left: 30px;
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HamburgerIcon, Logo, CartIcon } from "./shared/Icons";
 import CategoriesList from "./shared/CategoriesList";
 import { useWindowSize } from "./utils";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
 
