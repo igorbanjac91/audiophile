@@ -6,15 +6,14 @@ This is a solution to the [Audiophile e-commerce website challenge on Frontend M
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+
 
 ## Overview
 
@@ -33,11 +32,23 @@ Users should be able to:
   - VAT is calculated as 20% of the product total, excluding shipping
 - See an order confirmation modal after checking out with an order summary
 
-### Screenshot
+### Screenshots
+
+#### Mobile
+
+![Mobile view](/app/assets/images/screenshots/mobile-view.png)
+
+#### Tablet
+
+![Tablet view](/app/assets/images/screenshots/tablet-view.png)
+
+#### Desktop
+
+![Desktop view](/app/assets/images/screenshots/desktop-view.png)
 
 ### Links
 
-- Live Site URL: [](https://your-live-site-url.com)
+- Live Site URL -> [https://audiophile-ecommerce-en.herokuapp.com/](https://audiophile-ecommerce-en.herokuapp.com/)
 
 ## My process
 
@@ -54,15 +65,9 @@ Users should be able to:
 
 ### Continued development
 
-### Useful resources
-
-- [Example resource 1](https://www.example.com) 
-- [Example resource 2](https://www.example.com) 
+- Implement Stripe as payment service
 
 ## Author
 
-- Website - [My portfolio](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-## Acknowledgments
+- Website - [My portfolio](https://igorbanjac91.github.io/portfolio-website/)
+- Twitter - [@yourusername](https://twitter.com/banjac_igor)
