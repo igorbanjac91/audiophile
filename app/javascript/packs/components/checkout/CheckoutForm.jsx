@@ -1,3 +1,4 @@
+import { any } from "prop-types";
 import React, { useEffect, useState } from "react";
 import { CashDeliveryIcon } from "../shared/Icons";
 import { useWindowSize } from "../utils";
@@ -12,6 +13,7 @@ const CheckoutForm = (props) => {
   const zipRequiredmessage = "ZIP Code is required";
   const cityRequiredmessage = "City is required";
   const countryRequiredmessage = "Country is required";
+  const [ validForm, setValidForm ] = useState(false);
   const [ nameEmpty, setNameEmpty ] = useState(false);
   const [ emailEmpty, setEmailEmpty ] = useState(false);
   const [ phoneNumberEmpty, setPhoneNumberEmpty ] = useState(false);
@@ -21,17 +23,12 @@ const CheckoutForm = (props) => {
   const [ countryEmpty, setCountryEmpty ] = useState(false);
   const [ eMoneyNumberEmpty, setEMoneyNumberEmpty ] = useState(false);
   const [ eMoneyPinEmpty, setEMoneyPinEmpty ] = useState(false);
-  const [ selectedRadionBtn, setSelectedRadioBtn] = useState("e-money");
+  const [ selectedRadionBtn, setSelectedRadioBtn] = useState("cash");
 
 
   useEffect(() => {
     changeBorderRadioBtn();
   }, [selectedRadionBtn]);
-
-  function validate() {
-    handleNameBlur();
-  }
-
 
   // Name Validations
   
@@ -243,6 +240,41 @@ const CheckoutForm = (props) => {
     })
   }
   
+  function handleClickPay() {
+
+    validateForm();
+
+    if (validForm) {
+      let successWindow = document.querySelector(".success-window-container");
+      let body = document.querySelector("body");
+      
+      successWindow.style.display = "block";
+      body.classList.add("drop-shadow");
+    } else {
+      return 
+    }
+  }
+
+  function validateForm() {
+    let anyInvalid = false;
+    let inputs = document.querySelectorAll("input[type='text'], input[type='email'], input[type='tel']");
+    inputs.forEach(function(input) {
+      if (input.value === "") {
+        input.focus();
+        anyInvalid = true;
+      }
+    })
+    if (anyInvalid) {
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === "") {
+          inputs[i].focus();
+          break;
+        }
+      }
+    }
+    setValidForm(true);
+  }
+
   return (
     <div className="checkout__form" >
       <form>
@@ -365,7 +397,7 @@ const CheckoutForm = (props) => {
         </div>
         <div className="bottom-form">
           <CheckoutSummary lineItems={lineItems} />
-          <PayButton />
+          <PayButton handleClickPay={handleClickPay}/>
         </div>
       </form>
     </div>
@@ -453,35 +485,13 @@ const SummaryAmount = (props) => {
 
 const PayButton = (props) => {
 
-  
-  
-  function handleClick(e) {
-    let validForm = true;
-  
-    function validate() {
-      let fields = document.querySelectorAll("input")
-      fields.forEach((field) => {
-        if (field.value == "") {
-          validForm = false;
-        }
-      })
-    }
-
-    validate();
-
-    if (validForm) {
-      let successWindow = document.querySelector(".success-window-container");
-      let body = document.querySelector("body");
-  
-      successWindow.style.display = "block";
-      body.classList.add("drop-shadow");
-    } else {
-
-    }
+  function handleClickPay(e) {
+    e.preventDefault();
+    props.handleClickPay()
   }
 
   return (
-    <button className="btn-pay" onClick={handleClick}>CONTINUE & PAY</button>
+    <button type="submit" className="btn-pay" onClick={handleClickPay}>CONTINUE & PAY</button>
   )
 }
 
